@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -60,40 +63,37 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/resources/eofs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Accessing ERSST on the cloud" href="ersst_cloud.html" />
     <link rel="prev" title="Git basics" href="git_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +101,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,15 +108,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -126,7 +169,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +200,17 @@
     
     
     <img src="../../_static/logo2.svg" class="logo__image only-light" alt="WHOI Climate Data Tutorial (2025) - Home"/>
-    <script>document.write(`<img src="../../_static/logo2.svg" class="logo__image only-dark" alt="WHOI Climate Data Tutorial (2025) - Home"/>`);</script>
+    <img src="../../_static/logo2.svg" class="logo__image only-dark pst-js-only" alt="WHOI Climate Data Tutorial (2025) - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -240,9 +280,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -417,24 +462,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -457,7 +494,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-eofs">What are EOFs?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-visual-demonstration">A visual demonstration</a></li>
 </ul>
@@ -540,7 +577,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1283516e6caeb9c85ba0fecf74716e5c7cf54731395d805c488b531b4b9107a9.png" src="../../_images/1283516e6caeb9c85ba0fecf74716e5c7cf54731395d805c488b531b4b9107a9.png" />
+<img alt="../../_images/c64faa9083cda01f7b154970aa4d77b572c5a4e9dd1beb008227b98dd0c73696.png" src="../../_images/c64faa9083cda01f7b154970aa4d77b572c5a4e9dd1beb008227b98dd0c73696.png" />
 </div>
 </div>
 <p>I’ve plotted two possible sets of orthogonal vectors, one in black and one in red. Which aligns “better” with the data? Intuitively, you might say the black set: the longer arrow seems to be aligned along the main axis of the data. This is exactly the goal of EOFs: to find the “direction” or “pattern” which “aligns best” with the data. In this 2-D case (we only have two coordinates) the pattern is a 2-D vector. If we had 3 coordinates, the vector would have 3-coordinates, and so on. If we have temperature data with coordiantes of <span class="math notranslate nohighlight">\(n_{lat}\)</span> latitude points and <span class="math notranslate nohighlight">\(n_{lon}\)</span> longitude points, the resulting vector will be <span class="math notranslate nohighlight">\((n_{lon}\times n_{lat})\)</span> elements long; if we reshape this vector back into an array with dimensions of <span class="math notranslate nohighlight">\((n_{lon}, n_{lat})\)</span>, then we get a spatial pattern.</p>
@@ -549,8 +586,8 @@ document.write(`
 <section id="math-behind-eofs">
 <h2>Math behind EOFs<a class="headerlink" href="#math-behind-eofs" title="Link to this heading">#</a></h2>
 <p>Consider a set of <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(m\)</span>-dimensional vectors, concatenated into a data matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f567c35-dfd7-4c34-93d6-867dc03f1f73">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5f567c35-dfd7-4c34-93d6-867dc03f1f73" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de8ba26d-6dea-4041-9a56-6305ca9463c9">
+<span class="eqno">(2)<a class="headerlink" href="#equation-de8ba26d-6dea-4041-9a56-6305ca9463c9" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{X} &amp;= \begin{bmatrix} \mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n \end{bmatrix}
 \end{align}\]</div>
 <section id="what-do-we-mean-by-dominant-pattern">
@@ -573,38 +610,38 @@ document.write(`
 <section id="how-to-find-the-dominant-pattern">
 <h3>How to find the dominant pattern?<a class="headerlink" href="#how-to-find-the-dominant-pattern" title="Link to this heading">#</a></h3>
 <p>We want to choose the pattern <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> which maximizes <span class="math notranslate nohighlight">\(\mathbf{p}^T\mathbf{C}_{xx}\mathbf{p}\)</span> subject to the constraint <span class="math notranslate nohighlight">\(||\mathbf{p}||=\mathbf{p}^T\mathbf{p}=1\)</span>. We can solve for this <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> using a <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">Lagrange multiplier</a>. Defining the Lagrange multiplier as <span class="math notranslate nohighlight">\(\mu\)</span>, write down an “augmented” cost function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6166e3d-c48e-4a1f-a17b-2e001adc5cae">
-<span class="eqno">(3)<a class="headerlink" href="#equation-f6166e3d-c48e-4a1f-a17b-2e001adc5cae" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cf04e61d-f059-460f-9a6a-838629c3eedb">
+<span class="eqno">(3)<a class="headerlink" href="#equation-cf04e61d-f059-460f-9a6a-838629c3eedb" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathcal{L}(\mathbf{p}, \mu) &amp;= \mathbf{p}^T\mathbf{C}_{xx}\mathbf{p} + \mu \left(1-\mathbf{p}^T\mathbf{p}\right).
 \end{align}\]</div>
 <p>The first term on the LHS is the original cost function and the second term is the constraint term. Computing the gradient of the augmented cost function with respect to <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f668a02-b457-429b-b650-a9331c5dbd3c">
-<span class="eqno">(4)<a class="headerlink" href="#equation-5f668a02-b457-429b-b650-a9331c5dbd3c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e160d840-7723-4a55-a671-4d53c53600b4">
+<span class="eqno">(4)<a class="headerlink" href="#equation-e160d840-7723-4a55-a671-4d53c53600b4" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{\partial \mathcal{L}}{\partial \mathbf{p}} &amp;= \mathbf{C}_{xx} \mathbf{p} - \mu \mathbf{p}
 \end{align}\]</div>
 <p>Setting this gradient to zero, we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d21c5863-1bcf-4ca0-be52-ecfa5f30fc44">
-<span class="eqno">(5)<a class="headerlink" href="#equation-d21c5863-1bcf-4ca0-be52-ecfa5f30fc44" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-547a58e9-6bd6-4ae9-a5a3-f86f4ada48c3">
+<span class="eqno">(5)<a class="headerlink" href="#equation-547a58e9-6bd6-4ae9-a5a3-f86f4ada48c3" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{C}_{xx} \mathbf{p} &amp;= \mu \mathbf{p}.
 \end{align}\]</div>
 <p>(note that setting <span class="math notranslate nohighlight">\(\frac{\partial \mathcal{L}}{\partial\mu}=1-\mathbf{p}^T\mathbf{p}:=0\)</span> yields the original constraint, <span class="math notranslate nohighlight">\(\mathbf{p}^T\mathbf{p}=1\)</span>). Note that to satisfy the equation above, <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> must be an eigenvector of <span class="math notranslate nohighlight">\(\mathbf{C}_{xx}\)</span> (and has corresponding eigenvalue <span class="math notranslate nohighlight">\(\mu\)</span>). Note that if <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is an eigenvector with eigenvalue <span class="math notranslate nohighlight">\(\mu\)</span> and length 1, then we have <span class="math notranslate nohighlight">\(\mathbf{p}^T\mathbf{C}_{xx}\mathbf{p} = \mathbf{p}^T\left(\mu\mathbf{p}\right)=\mu\)</span>. Therefore, the pattern which maximizes <span class="math notranslate nohighlight">\(\mathbf{p}^T\mathbf{C}_{xx}\mathbf{p}\)</span> is the eigenvector of <span class="math notranslate nohighlight">\(\mathbf{C}_{xx}\)</span> with the largest eigenvalue.</p>
 <section id="connection-to-svd">
 <h4>Connection to SVD<a class="headerlink" href="#connection-to-svd" title="Link to this heading">#</a></h4>
 <p>Before explaining how to compute the projection timeseries and explained variance of each pattern, let’s look at the connection between the eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{C}_{xx}\)</span> and the singular value decomposition (SVD) of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>. Let’s start by writing <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> in terms of its singular value decomposition:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c50c7521-2a21-4842-a141-4efec7e59c87">
-<span class="eqno">(6)<a class="headerlink" href="#equation-c50c7521-2a21-4842-a141-4efec7e59c87" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e67fd549-46b9-44ae-8d88-68b37709c650">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e67fd549-46b9-44ae-8d88-68b37709c650" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{X}&amp;=\mathbf{U}\boldsymbol{\Lambda}\mathbf{V}^T,
 \end{align}\]</div>
 <p>Then the covariance matrix can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a109594-1378-41df-845c-1c36286b3001">
-<span class="eqno">(7)<a class="headerlink" href="#equation-6a109594-1378-41df-845c-1c36286b3001" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ba0253d-fcbe-4819-9c1f-d199589b5486">
+<span class="eqno">(7)<a class="headerlink" href="#equation-2ba0253d-fcbe-4819-9c1f-d199589b5486" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{C}_{xx} &amp;=\mathbf{XX}^T\\
     &amp;= \left(\mathbf{U}\boldsymbol{\Lambda} \mathbf{V}^T\right)\left(\mathbf{V} \boldsymbol{\Lambda} \mathbf{U}^T\right)\\
     &amp;= \mathbf{U}\boldsymbol{\Lambda}^2\mathbf{U}^T
 \end{align}\]</div>
 <p>Where we used the property of orthogonal matrices <span class="math notranslate nohighlight">\(\mathbf{V}^T\mathbf{V}=\mathbf{I}\)</span>. Next, right-multiply by <span class="math notranslate nohighlight">\(\mathbf{U}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59d6c290-95b1-4dea-9d7d-76c9d2a04c90">
-<span class="eqno">(8)<a class="headerlink" href="#equation-59d6c290-95b1-4dea-9d7d-76c9d2a04c90" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-48f5f1ba-b4c7-4b1a-861e-f07b50c66356">
+<span class="eqno">(8)<a class="headerlink" href="#equation-48f5f1ba-b4c7-4b1a-861e-f07b50c66356" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{C}_{xx}\mathbf{U} &amp;= \mathbf{U}\boldsymbol{\Lambda}^2
 \end{align}\]</div>
 <p>Therefore, the left singular vectors of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{C}_{xx}\)</span>. In particular, the <span class="math notranslate nohighlight">\(i^{th}\)</span> left singular vector satisfies the eigenvector equation <span class="math notranslate nohighlight">\(\mathbf{C}_{xx}\mathbf{u}_i = \lambda_i^2\mathbf{u}_i\)</span>.</p>
@@ -613,28 +650,28 @@ document.write(`
 <section id="projection-timeseries-and-explained-variance">
 <h3>Projection timeseries and explained variance<a class="headerlink" href="#projection-timeseries-and-explained-variance" title="Link to this heading">#</a></h3>
 <p>The principal component timeseries is given by projecting the data onto the pattern:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7dfd422f-1db4-45c1-883a-f8cc0f9739d0">
-<span class="eqno">(9)<a class="headerlink" href="#equation-7dfd422f-1db4-45c1-883a-f8cc0f9739d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6f24830a-98ce-4bed-9b95-6e7c150b4932">
+<span class="eqno">(9)<a class="headerlink" href="#equation-6f24830a-98ce-4bed-9b95-6e7c150b4932" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{q}_i^T &amp;= \mathbf{p}_i^T\mathbf{X}
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(\mathbf{p}_i\)</span> to the <span class="math notranslate nohighlight">\(i^{th}\)</span> singular vector of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db4ebe29-f420-48db-b6df-5f41adb51750">
-<span class="eqno">(10)<a class="headerlink" href="#equation-db4ebe29-f420-48db-b6df-5f41adb51750" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c213a95a-0a47-4098-af8d-5948822cdd85">
+<span class="eqno">(10)<a class="headerlink" href="#equation-c213a95a-0a47-4098-af8d-5948822cdd85" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbf{q}_i^T &amp;=\mathbf{u}_i^T\mathbf{X}\\
     &amp;= \mathbf{u}_i^T\left(\mathbf{U}\boldsymbol{\Lambda}\mathbf{V}^T\right)\\
     &amp;=\sum_{j}\mathbf{u}_i\mathbf{u}_j\lambda_j\mathbf{v}_j^T\\
     &amp;= \lambda_i\mathbf{v}_i^T,
 \end{align}\]</div>
 <p>where the last equality comes from noticing that <span class="math notranslate nohighlight">\(\mathbf{u}_i^T\mathbf{u}_j=1\)</span> if <span class="math notranslate nohighlight">\(i=j\)</span> and 0 otherwise. That is, the projection of the data onto the pattern is given by the right singular vectors, scaled by the singular values. Note that the variance of the data’s projection onto <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span> is then given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af079cba-4243-45ba-8d3e-3d0c2f14b69d">
-<span class="eqno">(11)<a class="headerlink" href="#equation-af079cba-4243-45ba-8d3e-3d0c2f14b69d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-57a0dfd5-b7fb-4354-a87e-6789dcfda7ec">
+<span class="eqno">(11)<a class="headerlink" href="#equation-57a0dfd5-b7fb-4354-a87e-6789dcfda7ec" title="Permalink to this equation">#</a></span>\[\begin{align}
     \text{var}(\mathbf{q}_i) &amp;= \left(\lambda_i\mathbf{v}_i^T\right)\left(\lambda_i\mathbf{v}_i^T\right)^T\\
     &amp;=\lambda_i^2\mathbf{v}_i^T\mathbf{v}_i\\
     &amp;=\lambda_i^2,
 \end{align}\]</div>
 <p>and the fraction of variance explained by the <span class="math notranslate nohighlight">\(i^{th}\)</span> singular vector is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-84d15554-d0b0-478b-bc67-dcfbd18171b5">
-<span class="eqno">(12)<a class="headerlink" href="#equation-84d15554-d0b0-478b-bc67-dcfbd18171b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fce5d7b6-d8cc-42e2-aea8-2923f0d5ed16">
+<span class="eqno">(12)<a class="headerlink" href="#equation-fce5d7b6-d8cc-42e2-aea8-2923f0d5ed16" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{\text{var}(\mathbf{q}_i)}{\sum_j \text{var}(\mathbf{q}_j)} &amp;= \frac{\lambda_i^2}{\sum_j\lambda_j^2}
 \end{align}\]</div>
 <p><strong>In summary,</strong> if we write <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> in terms of its SVD as <span class="math notranslate nohighlight">\(\mathbf{X}=\mathbf{USV}^T\)</span>, we have:</p>
@@ -812,6 +849,116 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## load all data and detrend</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">slp</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">server_fp</span><span class="o">=</span><span class="s2">&quot;/Volumes&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">slp_anom</span> <span class="o">=</span> <span class="n">detrend</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="nn">Cell In[2], line 44,</span> in <span class="ni">load_data</span><span class="nt">(server_fp)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>         <span class="c1">## get full filepath</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>         <span class="n">fp</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">server_fp</span><span class="p">)</span> <span class="o">/</span> <span class="n">fp_on_server</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> 
+<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="c1">## open data</span>
+<span class="ne">---&gt; </span><span class="mi">44</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.nc&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> 
+<span class="g g-Whitespace">     </span><span class="mi">46</span>         <span class="c1">## trim data</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1683,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">_nested_combine</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span>         <span class="n">datasets</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span>         <span class="n">concat_dims</span><span class="o">=</span><span class="n">concat_dim</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1678</span>         <span class="n">fill_value</span><span class="o">=</span><span class="n">dtypes</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1679</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1680</span> <span class="k">elif</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;by_coords&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1681</span>     <span class="c1"># Redo ordering from coordinates, ignoring how they were ordered</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span>     <span class="c1"># previously</span>
+<span class="ne">-&gt; </span><span class="mi">1683</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">combine_by_coords</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1684</span>         <span class="n">datasets</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span>         <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1686</span>         <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1687</span>         <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1688</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1689</span>         <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1690</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1692</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">combine</span><span class="si">}</span><span class="s2"> is an invalid option for the keyword argument ``combine``&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1127,</span> in <span class="ni">combine_by_coords</span><span class="nt">(data_objects, compat, data_vars, coords, fill_value, join, combine_attrs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">grouped_by_vars</span> <span class="o">=</span> <span class="n">groupby_defaultdict</span><span class="p">(</span><span class="n">data_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">vars_as_keys</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="c1"># Perform the multidimensional combine on each group of data variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="c1"># before merging back together</span>
+<span class="ne">-&gt; </span><span class="mi">1127</span>     <span class="n">concatenated_grouped_by_data_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span>         <span class="n">_combine_single_variable_hypercube</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="nb">tuple</span><span class="p">(</span><span class="n">datasets_with_same_vars</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>             <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>             <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>             <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>             <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="k">for</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">datasets_with_same_vars</span> <span class="ow">in</span> <span class="n">grouped_by_vars</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>     <span class="n">concatenated_grouped_by_data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1145</span>     <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1128,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">grouped_by_vars</span> <span class="o">=</span> <span class="n">groupby_defaultdict</span><span class="p">(</span><span class="n">data_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">vars_as_keys</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="c1"># Perform the multidimensional combine on each group of data variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="c1"># before merging back together</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="n">concatenated_grouped_by_data_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1128</span>         <span class="n">_combine_single_variable_hypercube</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="nb">tuple</span><span class="p">(</span><span class="n">datasets_with_same_vars</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>             <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>             <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>             <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>             <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="k">for</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">datasets_with_same_vars</span> <span class="ow">in</span> <span class="n">grouped_by_vars</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>     <span class="n">concatenated_grouped_by_data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1145</span>     <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:764,</span> in <span class="ni">_combine_single_variable_hypercube</span><span class="nt">(datasets, fill_value, data_vars, coords, compat, join, combine_attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>         <span class="s2">&quot;At least one Dataset is required to resolve variable names &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>         <span class="s2">&quot;for combined hypercube.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">764</span> <span class="n">combined_ids</span><span class="p">,</span> <span class="n">concat_dims</span> <span class="o">=</span> <span class="n">_infer_concat_order_from_coords</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="k">if</span> <span class="n">fill_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>     <span class="c1"># check that datasets form complete hypercube</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>     <span class="n">_check_shape_tile_ids</span><span class="p">(</span><span class="n">combined_ids</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:119,</span> in <span class="ni">_infer_concat_order_from_coords</span><span class="nt">(datasets)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="sa">f</span><span class="s2">&quot;Every dimension requires a corresponding 1D coordinate &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="sa">f</span><span class="s2">&quot;and index for inferring concatenation order but the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span>         <span class="sa">f</span><span class="s2">&quot;coordinate &#39;</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&#39; has no corresponding index&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="c1"># TODO (benbovy, flexible indexes): support flexible indexes?</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">to_pandas_index</span><span class="p">())</span>
+
+<span class="ne">ValueError</span>: Every dimension requires a corresponding 1D coordinate and index for inferring concatenation order but the coordinate &#39;time&#39; has no corresponding index
+</pre></div>
+</div>
+</div>
 </div>
 <section id="d-example">
 <h3>2-D example<a class="headerlink" href="#d-example" title="Link to this heading">#</a></h3>
@@ -835,7 +982,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xeofs.single.eof.EOF at 0x1458c2e90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xeofs.single.eof.EOF at 0x16518f390&gt;
 </pre></div>
 </div>
 </div>
@@ -905,7 +1052,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/91ee71a9a4320d7f2e726b98100310e53b62fdf6404b99669731a9777130c55e.png" src="../../_images/91ee71a9a4320d7f2e726b98100310e53b62fdf6404b99669731a9777130c55e.png" />
+<img alt="../../_images/0a9b481280352d4d60b5a6315b55f8b3c817ec818d8382bcc745c9e24f8951ac.png" src="../../_images/0a9b481280352d4d60b5a6315b55f8b3c817ec818d8382bcc745c9e24f8951ac.png" />
 </div>
 </div>
 </section>
@@ -953,9 +1100,6 @@ True
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4ec21d5402d48d32b6f2221ebe8e9d46d1cd34c99eb4f223ff0f1ad42da3daab.png" src="../../_images/4ec21d5402d48d32b6f2221ebe8e9d46d1cd34c99eb4f223ff0f1ad42da3daab.png" />
-</div>
 </div>
 <p>Plot timeseries</p>
 <div class="cell docutils container">
@@ -972,9 +1116,6 @@ True
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/3598325700ea3f7ae8e20b3961dd754a0b440fd25dee8cbb05a6302fb8db624c.png" src="../../_images/3598325700ea3f7ae8e20b3961dd754a0b440fd25dee8cbb05a6302fb8db624c.png" />
 </div>
 </div>
 <p>Explained variance ratio</p>
@@ -993,9 +1134,6 @@ True
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/e9772caaec508524003ae04f290b209fd5e0ce668fa6e694db4c4d44aaf285ee.png" src="../../_images/e9772caaec508524003ae04f290b209fd5e0ce668fa6e694db4c4d44aaf285ee.png" />
 </div>
 </div>
 </section>
@@ -1057,7 +1195,8 @@ True
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1065,7 +1204,7 @@ True
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-eofs">What are EOFs?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-visual-demonstration">A visual demonstration</a></li>
 </ul>
@@ -1136,8 +1275,8 @@ By Theo Carr & Finn Wimberly
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

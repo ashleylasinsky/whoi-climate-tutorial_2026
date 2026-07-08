@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -60,40 +63,37 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/model_validation/example';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3) Single-model climate-change" href="../single_model/overview.html" />
     <link rel="prev" title="2) Model validation" href="overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +101,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,15 +108,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -126,7 +169,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +200,17 @@
     
     
     <img src="../../_static/logo2.svg" class="logo__image only-light" alt="WHOI Climate Data Tutorial (2025) - Home"/>
-    <script>document.write(`<img src="../../_static/logo2.svg" class="logo__image only-dark" alt="WHOI Climate Data Tutorial (2025) - Home"/>`);</script>
+    <img src="../../_static/logo2.svg" class="logo__image only-dark pst-js-only" alt="WHOI Climate Data Tutorial (2025) - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -240,9 +280,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -417,24 +462,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -457,7 +494,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loading">Data loading</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loading-from-cloud">for loading from cloud</a></li>
@@ -521,10 +558,10 @@ document.write(`
 <section id="for-loading-from-cloud">
 <h4>for loading from cloud<a class="headerlink" href="#for-loading-from-cloud" title="Link to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prep_lsm</span><span class="p">(</span><span class="n">lsm</span><span class="p">,</span> <span class="n">lon_range</span><span class="p">,</span> <span class="n">lat_range</span><span class="p">):</span>
@@ -671,10 +708,10 @@ document.write(`
 <section id="for-loading-from-server">
 <h4>for loading from server<a class="headerlink" href="#for-loading-from-server" title="Link to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_simulation</span><span class="p">(</span>
@@ -798,10 +835,10 @@ document.write(`
 <section id="utilities">
 <h4>utilities<a class="headerlink" href="#utilities" title="Link to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">trim</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lon_range</span><span class="p">,</span> <span class="n">lat_range</span><span class="p">):</span>
@@ -886,10 +923,10 @@ document.write(`
 <section id="data-handling">
 <h4>Data-handling<a class="headerlink" href="#data-handling" title="Link to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ensure_consistent_grids</span><span class="p">(</span><span class="n">era5_data</span><span class="p">,</span> <span class="n">cesm_data</span><span class="p">,</span> <span class="n">target_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1034,14 +1071,127 @@ The CMIP server seems unable to handle multiple users access the same file at on
 - CESM: SST (ocean only)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regridding CESM data to match ERA5 grid...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset summary:
-ERA5 shape: (525, 281, 400)
-CESM shape: (1932, 281, 400)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;HDF5_USE_FILE_LOCKING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;FALSE&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">## Load comparable datasets</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">era5_data</span><span class="p">,</span> <span class="n">cesm_data</span> <span class="o">=</span> <span class="n">load_comparable_datasets</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">server_fp</span><span class="o">=</span><span class="n">SERVER_FP</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">lon_range</span><span class="o">=</span><span class="n">LON_RANGE</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">lat_range</span><span class="o">=</span><span class="n">LAT_RANGE</span><span class="p">,</span>
 
-Total loading time: 97.7 seconds
+<span class="nn">Cell In[5], line 70,</span> in <span class="ni">load_comparable_datasets</span><span class="nt">(server_fp, lon_range, lat_range, member_id, load_from_cloud, load_ssp370)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- ERA5: SST (ocean only)&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- CESM: SST (ocean only)&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span> 
+<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="c1"># Load ocean-only SST data</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">era5_data</span> <span class="o">=</span> <span class="n">load_era5_from_server</span><span class="p">(</span><span class="n">server_fp</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">cesm_data</span> <span class="o">=</span> <span class="n">load_cesm_from_server</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">varname</span><span class="o">=</span><span class="s2">&quot;SST&quot;</span><span class="p">,</span> <span class="n">server_fp</span><span class="o">=</span><span class="n">server_fp</span><span class="p">,</span> <span class="n">member_id</span><span class="o">=</span><span class="n">member_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+
+<span class="nn">Cell In[3], line 100,</span> in <span class="ni">load_era5_from_server</span><span class="nt">(server_fp, lon_range, lat_range)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="c1">## sea surface temperature (SST) filepaths</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">era5_fp_sst</span> <span class="o">=</span> <span class="n">server_fp</span> <span class="o">/</span> <span class="n">era5_fp</span> <span class="o">/</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;sea_surface_temperature&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> 
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1">## open the data</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">era5_fp_sst</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.nc&quot;</span><span class="p">))[</span><span class="s2">&quot;sst&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> 
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="c1">## convert kelvin to celsius</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>     <span class="n">data_celsius</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">-</span> <span class="mf">273.15</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1683,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">_nested_combine</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span>         <span class="n">datasets</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span>         <span class="n">concat_dims</span><span class="o">=</span><span class="n">concat_dim</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1678</span>         <span class="n">fill_value</span><span class="o">=</span><span class="n">dtypes</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1679</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1680</span> <span class="k">elif</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;by_coords&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1681</span>     <span class="c1"># Redo ordering from coordinates, ignoring how they were ordered</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span>     <span class="c1"># previously</span>
+<span class="ne">-&gt; </span><span class="mi">1683</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">combine_by_coords</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1684</span>         <span class="n">datasets</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span>         <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1686</span>         <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1687</span>         <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1688</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1689</span>         <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1690</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1692</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">combine</span><span class="si">}</span><span class="s2"> is an invalid option for the keyword argument ``combine``&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1127,</span> in <span class="ni">combine_by_coords</span><span class="nt">(data_objects, compat, data_vars, coords, fill_value, join, combine_attrs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">grouped_by_vars</span> <span class="o">=</span> <span class="n">groupby_defaultdict</span><span class="p">(</span><span class="n">data_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">vars_as_keys</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="c1"># Perform the multidimensional combine on each group of data variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="c1"># before merging back together</span>
+<span class="ne">-&gt; </span><span class="mi">1127</span>     <span class="n">concatenated_grouped_by_data_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span>         <span class="n">_combine_single_variable_hypercube</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="nb">tuple</span><span class="p">(</span><span class="n">datasets_with_same_vars</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>             <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>             <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>             <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>             <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="k">for</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">datasets_with_same_vars</span> <span class="ow">in</span> <span class="n">grouped_by_vars</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>     <span class="n">concatenated_grouped_by_data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1145</span>     <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1128,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">grouped_by_vars</span> <span class="o">=</span> <span class="n">groupby_defaultdict</span><span class="p">(</span><span class="n">data_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">vars_as_keys</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="c1"># Perform the multidimensional combine on each group of data variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="c1"># before merging back together</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="n">concatenated_grouped_by_data_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1128</span>         <span class="n">_combine_single_variable_hypercube</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="nb">tuple</span><span class="p">(</span><span class="n">datasets_with_same_vars</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>             <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>             <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>             <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>             <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="k">for</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">datasets_with_same_vars</span> <span class="ow">in</span> <span class="n">grouped_by_vars</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>     <span class="n">concatenated_grouped_by_data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1145</span>     <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:764,</span> in <span class="ni">_combine_single_variable_hypercube</span><span class="nt">(datasets, fill_value, data_vars, coords, compat, join, combine_attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>         <span class="s2">&quot;At least one Dataset is required to resolve variable names &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>         <span class="s2">&quot;for combined hypercube.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">764</span> <span class="n">combined_ids</span><span class="p">,</span> <span class="n">concat_dims</span> <span class="o">=</span> <span class="n">_infer_concat_order_from_coords</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="k">if</span> <span class="n">fill_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>     <span class="c1"># check that datasets form complete hypercube</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>     <span class="n">_check_shape_tile_ids</span><span class="p">(</span><span class="n">combined_ids</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:119,</span> in <span class="ni">_infer_concat_order_from_coords</span><span class="nt">(datasets)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="sa">f</span><span class="s2">&quot;Every dimension requires a corresponding 1D coordinate &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="sa">f</span><span class="s2">&quot;and index for inferring concatenation order but the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span>         <span class="sa">f</span><span class="s2">&quot;coordinate &#39;</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&#39; has no corresponding index&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="c1"># TODO (benbovy, flexible indexes): support flexible indexes?</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">to_pandas_index</span><span class="p">())</span>
+
+<span class="ne">ValueError</span>: Every dimension requires a corresponding 1D coordinate and index for inferring concatenation order but the coordinate &#39;time&#39; has no corresponding index
 </pre></div>
 </div>
 </div>
@@ -1058,10 +1208,10 @@ Total loading time: 97.7 seconds
 <p>E.g., choose a different region by modifying the function <code class="docutils literal notranslate"><span class="pre">compute_T_wh</span></code> below.</p>
 </div>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">spatial_avg</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -1285,25 +1435,6 @@ Total loading time: 97.7 seconds
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Woods Hole temperature index...
-</pre></div>
-</div>
-<img alt="../../_images/4fbea19918bec06181f79e566fc530455eb546cdb2466e6e196b8a4142198921.png" src="../../_images/4fbea19918bec06181f79e566fc530455eb546cdb2466e6e196b8a4142198921.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERA5 JAS statistics (1979-2006):
-  Mean: 19.17°C
-  Std:  0.66°C
-  Min:  17.34°C
-  Max:  20.51°C
-
-CESM JAS statistics (1979-2006):
-  Mean: 23.94°C
-  Std:  0.39°C
-  Min:  23.00°C
-  Max:  24.71°C
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="histogram-of-t-wh">
@@ -1346,9 +1477,6 @@ CESM JAS statistics (1979-2006):
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/587a4656c5794a5548fb8d5476f5cfa4ef800d10785c3d43bb9ba9a8c41ed4b5.png" src="../../_images/587a4656c5794a5548fb8d5476f5cfa4ef800d10785c3d43bb9ba9a8c41ed4b5.png" />
 </div>
 </div>
 </section>
@@ -1428,9 +1556,6 @@ CESM JAS statistics (1979-2006):
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/2c4d4771566f69e4dd76585115be03b539344510dc5f344e4356f8a55cf4cfcd.png" src="../../_images/2c4d4771566f69e4dd76585115be03b539344510dc5f344e4356f8a55cf4cfcd.png" />
 </div>
 </div>
 <p>The mean temperature plots look fairly similar; however, the error plot reveals some differences between the datasets.</p>
@@ -1526,9 +1651,6 @@ If you’re focusing on a different region, what does the spatial structure of t
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/1d846b29b2158909be94332706ea47fb46effd5f31964283599d33c670f59c0e.png" src="../../_images/1d846b29b2158909be94332706ea47fb46effd5f31964283599d33c670f59c0e.png" />
-</div>
 </div>
 <p>What do you think are reasons for the bias? Try plotting the data set without applying the contours (ie make a more simple plot than we did above–you can use xarray’s built in plotting command ds.plot() )</p>
 </section>
@@ -1590,7 +1712,8 @@ If you’re focusing on a different region, what does the spatial structure of t
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1598,7 +1721,7 @@ If you’re focusing on a different region, what does the spatial structure of t
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loading">Data loading</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loading-from-cloud">for loading from cloud</a></li>
@@ -1666,8 +1789,8 @@ By Theo Carr & Finn Wimberly
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

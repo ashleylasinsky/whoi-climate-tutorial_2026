@@ -1,0 +1,84 @@
+Traceback (most recent call last):
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+## Load data
+data_hist = load_ensemble("SST", "hist", preprocess_func=preprocess, save_fp=save_fp)
+data_rcp = load_ensemble("SST", "rcp85", preprocess_func=preprocess, save_fp=save_fp)
+
+## Optional: load into memory (warning: may be slow!)
+data_hist.load()
+data_rcp.load();
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 2[39m
+[32m      1[39m [38;5;66;03m## Load data[39;00m
+[32m----> [39m[32m2[39m data_hist = load_ensemble([33m"SST"[39m, [33m"hist"[39m, preprocess_func=preprocess, save_fp=save_fp)
+[32m      3[39m data_rcp = load_ensemble([33m"SST"[39m, [33m"rcp85"[39m, preprocess_func=preprocess, save_fp=save_fp)
+[32m      4[39m 
+[32m      5[39m [38;5;66;03m## Optional: load into memory (warning: may be slow!)[39;00m
+
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 459[39m, in [36mload_ensemble[39m[34m(varname, simulation_type, preprocess_func, save_fp)[39m
+[32m    455[39m 
+[32m    456[39m         [38;5;28;01melse[39;00m:
+[32m    457[39m 
+[32m    458[39m             [38;5;66;03m## load the data and save to file for next time[39;00m
+[32m--> [39m[32m459[39m             data = load_ensemble_helper(**kwargs)
+[32m    460[39m 
+[32m    461[39m             print([33m"saving to file"[39m)
+[32m    462[39m             data.to_netcdf(save_fp)
+
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 417[39m, in [36mload_ensemble_helper[39m[34m(varname, simulation_type, preprocess_func)[39m
+[32m    413[39m         preprocess_func=preprocess_func,
+[32m    414[39m     )
+[32m    415[39m 
+[32m    416[39m     [38;5;66;03m## put results in list[39;00m
+[32m--> [39m[32m417[39m     data = [load_simulation(member_id=i, **kwargs) [38;5;28;01mfor[39;00m i [38;5;28;01min[39;00m np.arange([32m1[39m, [32m11[39m)]
+[32m    418[39m 
+[32m    419[39m     [38;5;66;03m## concatenate data along the "ensemble" dimension[39;00m
+[32m    420[39m     ensemble_dim = pd.Index(np.arange([32m1[39m, [32m11[39m), name=[33m"member"[39m)
+
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 417[39m, in [36mload_ensemble_helper.<locals>.<listcomp>[39m[34m(.0)[39m
+[32m--> [39m[32m417[39m [38;5;28;01mdef[39;00m load_ensemble_helper(varname, simulation_type, preprocess_func=[38;5;28;01mNone[39;00m):
+[32m    418[39m     """
+[32m    419[39m     Load all ensemble members [38;5;28;01mfor[39;00m given simulation type [38;5;28;01mand[39;00m variable.
+[32m    420[39m     Arguments:
+
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 358[39m, in [36mload_simulation[39m[34m(varname, member_id, simulation_type, preprocess_func)[39m
+[32m    354[39m     [38;5;28;01melse[39;00m:
+[32m    355[39m         print([33m"Not a valid simulation type"[39m)
+[32m    356[39m 
+[32m    357[39m     [38;5;66;03m#### 3. open the relevant datasets, applying preprocessing function[39;00m
+[32m--> [39m[32m358[39m     data = xr.open_mfdataset(
+[32m    359[39m         paths=data_fp.glob(file_pattern),
+[32m    360[39m         preprocess=preprocess_func,
+[32m    361[39m         chunks={[33m"time"[39m: [32m60[39m},
+
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1591[39m, in [36mopen_mfdataset[39m[34m(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)[39m
+[32m   1588[39m paths = _find_absolute_paths(paths, engine=engine, **kwargs)
+[32m   1590[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m paths:
+[32m-> [39m[32m1591[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m([33m"[39m[33mno files to open[39m[33m"[39m)
+[32m   1593[39m paths1d: [38;5;28mlist[39m[[38;5;28mstr[39m | ReadBuffer]
+[32m   1594[39m [38;5;28;01mif[39;00m combine == [33m"[39m[33mnested[39m[33m"[39m:
+
+[31mOSError[39m: no files to open
+

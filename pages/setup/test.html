@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -58,40 +61,37 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/setup/test';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1) Climate diagnostics" href="../data_analysis/overview.html" />
     <link rel="prev" title="Accessing the CMIP data servers" href="connect_to_server.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,15 +106,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -124,7 +167,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +198,17 @@
     
     
     <img src="../../_static/logo2.svg" class="logo__image only-light" alt="WHOI Climate Data Tutorial (2025) - Home"/>
-    <script>document.write(`<img src="../../_static/logo2.svg" class="logo__image only-dark" alt="WHOI Climate Data Tutorial (2025) - Home"/>`);</script>
+    <img src="../../_static/logo2.svg" class="logo__image only-dark pst-js-only" alt="WHOI Climate Data Tutorial (2025) - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -238,9 +278,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -415,24 +460,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -455,7 +492,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-data">Open the data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-list-of-files-to-open">Get list of files to open</a></li>
@@ -579,6 +616,104 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">t2m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">t2m_files</span><span class="p">)[</span><span class="s2">&quot;t2m&quot;</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1683,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">_nested_combine</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span>         <span class="n">datasets</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span>         <span class="n">concat_dims</span><span class="o">=</span><span class="n">concat_dim</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1678</span>         <span class="n">fill_value</span><span class="o">=</span><span class="n">dtypes</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1679</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1680</span> <span class="k">elif</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;by_coords&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1681</span>     <span class="c1"># Redo ordering from coordinates, ignoring how they were ordered</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span>     <span class="c1"># previously</span>
+<span class="ne">-&gt; </span><span class="mi">1683</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">combine_by_coords</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1684</span>         <span class="n">datasets</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span>         <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1686</span>         <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1687</span>         <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1688</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1689</span>         <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1690</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1692</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">combine</span><span class="si">}</span><span class="s2"> is an invalid option for the keyword argument ``combine``&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1127,</span> in <span class="ni">combine_by_coords</span><span class="nt">(data_objects, compat, data_vars, coords, fill_value, join, combine_attrs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">grouped_by_vars</span> <span class="o">=</span> <span class="n">groupby_defaultdict</span><span class="p">(</span><span class="n">data_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">vars_as_keys</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="c1"># Perform the multidimensional combine on each group of data variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="c1"># before merging back together</span>
+<span class="ne">-&gt; </span><span class="mi">1127</span>     <span class="n">concatenated_grouped_by_data_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span>         <span class="n">_combine_single_variable_hypercube</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="nb">tuple</span><span class="p">(</span><span class="n">datasets_with_same_vars</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>             <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>             <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>             <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>             <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="k">for</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">datasets_with_same_vars</span> <span class="ow">in</span> <span class="n">grouped_by_vars</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>     <span class="n">concatenated_grouped_by_data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1145</span>     <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1128,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">grouped_by_vars</span> <span class="o">=</span> <span class="n">groupby_defaultdict</span><span class="p">(</span><span class="n">data_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">vars_as_keys</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="c1"># Perform the multidimensional combine on each group of data variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="c1"># before merging back together</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="n">concatenated_grouped_by_data_vars</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1128</span>         <span class="n">_combine_single_variable_hypercube</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="nb">tuple</span><span class="p">(</span><span class="n">datasets_with_same_vars</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>             <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="n">data_vars</span><span class="o">=</span><span class="n">data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>             <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>             <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>             <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="k">for</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">datasets_with_same_vars</span> <span class="ow">in</span> <span class="n">grouped_by_vars</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>     <span class="n">concatenated_grouped_by_data_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="n">compat</span><span class="o">=</span><span class="n">compat</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1145</span>     <span class="n">combine_attrs</span><span class="o">=</span><span class="n">combine_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:764,</span> in <span class="ni">_combine_single_variable_hypercube</span><span class="nt">(datasets, fill_value, data_vars, coords, compat, join, combine_attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>         <span class="s2">&quot;At least one Dataset is required to resolve variable names &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>         <span class="s2">&quot;for combined hypercube.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">764</span> <span class="n">combined_ids</span><span class="p">,</span> <span class="n">concat_dims</span> <span class="o">=</span> <span class="n">_infer_concat_order_from_coords</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="k">if</span> <span class="n">fill_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>     <span class="c1"># check that datasets form complete hypercube</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>     <span class="n">_check_shape_tile_ids</span><span class="p">(</span><span class="n">combined_ids</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:119,</span> in <span class="ni">_infer_concat_order_from_coords</span><span class="nt">(datasets)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="sa">f</span><span class="s2">&quot;Every dimension requires a corresponding 1D coordinate &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="sa">f</span><span class="s2">&quot;and index for inferring concatenation order but the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span>         <span class="sa">f</span><span class="s2">&quot;coordinate &#39;</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&#39; has no corresponding index&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="c1"># TODO (benbovy, flexible indexes): support flexible indexes?</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">indexes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">to_pandas_index</span><span class="p">())</span>
+
+<span class="ne">ValueError</span>: Every dimension requires a corresponding 1D coordinate and index for inferring concatenation order but the coordinate &#39;time&#39; has no corresponding index
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -674,9 +809,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/08d941e8cd549d33c8db8408841edc13d8ed1441464b2ecd57a6dff9911eca80.png" src="../../_images/08d941e8cd549d33c8db8408841edc13d8ed1441464b2ecd57a6dff9911eca80.png" />
-</div>
 </div>
 </section>
 </section>
@@ -739,9 +871,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/f0b40f8cea61b8bb1b5f17c185fecc551d7fcb5f8ae96f4adc1565d820f1f389.png" src="../../_images/f0b40f8cea61b8bb1b5f17c185fecc551d7fcb5f8ae96f4adc1565d820f1f389.png" />
-</div>
 </div>
 </section>
 <section id="making-sure-the-other-required-packages-made-it-into-our-env">
@@ -757,13 +886,6 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dask version:&quot;</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;netCDF4 version:&quot;</span><span class="p">,</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cftime version:&quot;</span><span class="p">,</span> <span class="n">cftime</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dask version: 2025.5.0
-netCDF4 version: 1.7.2
-cftime version: 1.6.4
 </pre></div>
 </div>
 </div>
@@ -847,7 +969,8 @@ cftime version: 1.6.4
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -855,7 +978,7 @@ cftime version: 1.6.4
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-data">Open the data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-list-of-files-to-open">Get list of files to open</a></li>
@@ -922,8 +1045,8 @@ By Theo Carr & Finn Wimberly
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

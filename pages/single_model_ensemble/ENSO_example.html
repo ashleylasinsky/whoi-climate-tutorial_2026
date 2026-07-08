@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -58,38 +61,35 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/single_model_ensemble/ENSO_example';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -97,7 +97,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -105,15 +104,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -124,7 +167,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +198,17 @@
     
     
     <img src="../../_static/logo2.svg" class="logo__image only-light" alt="WHOI Climate Data Tutorial (2025) - Home"/>
-    <script>document.write(`<img src="../../_static/logo2.svg" class="logo__image only-dark" alt="WHOI Climate Data Tutorial (2025) - Home"/>`);</script>
+    <img src="../../_static/logo2.svg" class="logo__image only-dark pst-js-only" alt="WHOI Climate Data Tutorial (2025) - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -238,9 +278,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -415,24 +460,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -455,7 +492,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-dask-dashboard">Set up Dask dashboard</a></li>
@@ -1083,126 +1120,46 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>saving to file
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
-  data = xr.open_mfdataset(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gd/xv4t6tlj16n5774zwn6ctwkh0000gn/T/ipykernel_14980/3724965358.py:358: FutureWarning: In a future version of xarray decode_timedelta will default to False rather than None. To silence this warning, set decode_timedelta to True, False, or a &#39;CFTimedeltaCoder&#39; instance.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_72270/3724965358.py:358: FutureWarning: In a future version of xarray the default value for data_vars will change from data_vars=&#39;all&#39; to data_vars=None. This is likely to lead to different results when multiple datasets have matching variables with overlapping values. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set data_vars explicitly.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
@@ -1245,7 +1202,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fefd4780c3cfd13757c0d4d32c666bdb2eb74adb5d7c62a3b209ed9a45335dd9.png" src="../../_images/fefd4780c3cfd13757c0d4d32c666bdb2eb74adb5d7c62a3b209ed9a45335dd9.png" />
+<img alt="../../_images/b40abc53e2125e584bcdd0f5349f81ea6488cbdf7b5490841cd133f1eed5aaf8.png" src="../../_images/b40abc53e2125e584bcdd0f5349f81ea6488cbdf7b5490841cd133f1eed5aaf8.png" />
 </div>
 </div>
 </section>
@@ -1299,7 +1256,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5b59a5dbaedfbd51f87281216215d510d7f33a8c0d0bd870c9baf276bd77b072.png" src="../../_images/5b59a5dbaedfbd51f87281216215d510d7f33a8c0d0bd870c9baf276bd77b072.png" />
+<img alt="../../_images/cbe687499df31d98af92f0e187f43938001864a3b70ce81c79fc89244dd63201.png" src="../../_images/cbe687499df31d98af92f0e187f43938001864a3b70ce81c79fc89244dd63201.png" />
 </div>
 </div>
 </section>
@@ -1337,7 +1294,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/35efa0de6825e76841fa7bdc69ff23e42051d722f5466415e10f2284c0db4e1e.png" src="../../_images/35efa0de6825e76841fa7bdc69ff23e42051d722f5466415e10f2284c0db4e1e.png" />
+<img alt="../../_images/a3f3ddd279ab6b2dd970d2e83a44344d5333dab8116d97b422102ca97c26fdc8.png" src="../../_images/a3f3ddd279ab6b2dd970d2e83a44344d5333dab8116d97b422102ca97c26fdc8.png" />
 </div>
 </div>
 </section>
@@ -1391,7 +1348,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ee70670a7499f5e62cfe11feb40cc91a586a047a93bff91b27d62380fd63dcd1.png" src="../../_images/ee70670a7499f5e62cfe11feb40cc91a586a047a93bff91b27d62380fd63dcd1.png" />
+<img alt="../../_images/59df99b58202a788b2129a25ee66025a4f25d4e09907fb9deb119812983c4130.png" src="../../_images/59df99b58202a788b2129a25ee66025a4f25d4e09907fb9deb119812983c4130.png" />
 </div>
 </div>
 </section>
@@ -1426,7 +1383,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f8553007d7c733f986a9b59dcd8dbf1ecef8c94f2561ad0a03097e99d22356be.png" src="../../_images/f8553007d7c733f986a9b59dcd8dbf1ecef8c94f2561ad0a03097e99d22356be.png" />
+<img alt="../../_images/70f074f5f0c17bdff83c2e6aa6aa853d3fe25400eeed884f1915af16eb082ae5.png" src="../../_images/70f074f5f0c17bdff83c2e6aa6aa853d3fe25400eeed884f1915af16eb082ae5.png" />
 </div>
 </div>
 </section>
@@ -1490,7 +1447,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5d2c456fd82fd378a97a30ebd0edc8d5fd748a498de129b1edbb37f8d7e0e036.png" src="../../_images/5d2c456fd82fd378a97a30ebd0edc8d5fd748a498de129b1edbb37f8d7e0e036.png" />
+<img alt="../../_images/225b61cda10a7cbcac0d927df71eb40afc6b4243bf7f9f966bb529887045a02f.png" src="../../_images/225b61cda10a7cbcac0d927df71eb40afc6b4243bf7f9f966bb529887045a02f.png" />
 </div>
 </div>
 <p>Compute spatial trend (trend at each gridcell)</p>
@@ -1542,7 +1499,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b50f04314ad8909d0864c519561f8a717883aafead57790fc2c174cbf843f5f5.png" src="../../_images/b50f04314ad8909d0864c519561f8a717883aafead57790fc2c174cbf843f5f5.png" />
+<img alt="../../_images/153948377be7668c2cc03dd01ebd4f7c5062c80ff82c5012fb52c68c67add69f.png" src="../../_images/153948377be7668c2cc03dd01ebd4f7c5062c80ff82c5012fb52c68c67add69f.png" />
 </div>
 </div>
 </section>
@@ -1645,7 +1602,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/141654bee0ff3a68d0b08f0e7c6599230daac8ca56ba943dc9a581eedec933ee.png" src="../../_images/141654bee0ff3a68d0b08f0e7c6599230daac8ca56ba943dc9a581eedec933ee.png" />
+<img alt="../../_images/5c64a21850982d4cb0f3f2cccc74087de8315dcc18e319de62e7aafd9cd162f2.png" src="../../_images/5c64a21850982d4cb0f3f2cccc74087de8315dcc18e319de62e7aafd9cd162f2.png" />
 </div>
 </div>
 </section>
@@ -1770,9 +1727,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/108ccf15d20b24685dfdceec4ee757b73c85f3e6678565e68ce8b895cf3d5c00.png" src="../../_images/108ccf15d20b24685dfdceec4ee757b73c85f3e6678565e68ce8b895cf3d5c00.png" />
-<img alt="../../_images/87adb2ca4be7d031a8d7dc81c1f448f7d1d77f32c02329f9fba9dff0c85d2059.png" src="../../_images/87adb2ca4be7d031a8d7dc81c1f448f7d1d77f32c02329f9fba9dff0c85d2059.png" />
-<img alt="../../_images/1fbc5178fd4f4ca1a12659b648c17bfa75b26b2e2599312e3f75a3f27577feae.png" src="../../_images/1fbc5178fd4f4ca1a12659b648c17bfa75b26b2e2599312e3f75a3f27577feae.png" />
+<img alt="../../_images/f108c733f5432156518b05875aaaf760703ee1aec8b64f3707844d1468e85629.png" src="../../_images/f108c733f5432156518b05875aaaf760703ee1aec8b64f3707844d1468e85629.png" />
+<img alt="../../_images/f108c733f5432156518b05875aaaf760703ee1aec8b64f3707844d1468e85629.png" src="../../_images/f108c733f5432156518b05875aaaf760703ee1aec8b64f3707844d1468e85629.png" />
+<img alt="../../_images/eb65e6f4cc3a47802bd12d9fc1b4a14db17a47c5c08ae1f1924938e4012362e5.png" src="../../_images/eb65e6f4cc3a47802bd12d9fc1b4a14db17a47c5c08ae1f1924938e4012362e5.png" />
 </div>
 </div>
 </section>
@@ -1821,7 +1778,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85c4fe21a83735085e97b4341a15bd04bfa294be544fa1622396d42562f80759.png" src="../../_images/85c4fe21a83735085e97b4341a15bd04bfa294be544fa1622396d42562f80759.png" />
+<img alt="../../_images/5430a07855a233184da6244dd33dd5c43a0e247f9d12ab77c7e066a9d02c1fca.png" src="../../_images/5430a07855a233184da6244dd33dd5c43a0e247f9d12ab77c7e066a9d02c1fca.png" />
 </div>
 </div>
 </section>
@@ -1884,7 +1841,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b7f3b0010eec28040999db159c228762ce3afe86c0d80d04d7f53a087ce5a8d5.png" src="../../_images/b7f3b0010eec28040999db159c228762ce3afe86c0d80d04d7f53a087ce5a8d5.png" />
+<img alt="../../_images/92ddee31d816184ad287ac2a7ce5b1af0bc2af70da256adcb9aaafc488c64467.png" src="../../_images/92ddee31d816184ad287ac2a7ce5b1af0bc2af70da256adcb9aaafc488c64467.png" />
 </div>
 </div>
 </section>
@@ -1954,7 +1911,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a24c6bc443bd6287cf12bfca91df911be5f6dd0d5c4ac3abd5f3c744d1facc1e.png" src="../../_images/a24c6bc443bd6287cf12bfca91df911be5f6dd0d5c4ac3abd5f3c744d1facc1e.png" />
+<img alt="../../_images/6ab18e48a6fca4d0974e386e9ffc788b73ce0805aed16a2d97368903f1ca4831.png" src="../../_images/6ab18e48a6fca4d0974e386e9ffc788b73ce0805aed16a2d97368903f1ca4831.png" />
 </div>
 </div>
 </section>
@@ -2038,8 +1995,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b05425f5b46a6291078e6520559d4bcbbc770111e686227d53df6ce66dc6ae1c.png" src="../../_images/b05425f5b46a6291078e6520559d4bcbbc770111e686227d53df6ce66dc6ae1c.png" />
-<img alt="../../_images/683efb3f9f3fbc9ee23e2de7eab20eaa82ff17cbedfc440f5fe0ba7b0c8b9701.png" src="../../_images/683efb3f9f3fbc9ee23e2de7eab20eaa82ff17cbedfc440f5fe0ba7b0c8b9701.png" />
+<img alt="../../_images/8710b09aa49c9a185fe0a0529be41b2baddffdca6ec331fba7a0bbc4efc6aa79.png" src="../../_images/8710b09aa49c9a185fe0a0529be41b2baddffdca6ec331fba7a0bbc4efc6aa79.png" />
+<img alt="../../_images/89ce4b404da45c2a0a9ac8489b3d06efe1c8582b04a9d45fc44509dac2ae1e77.png" src="../../_images/89ce4b404da45c2a0a9ac8489b3d06efe1c8582b04a9d45fc44509dac2ae1e77.png" />
 </div>
 </div>
 </section>
@@ -2083,7 +2040,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2091,7 +2049,7 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-dask-dashboard">Set up Dask dashboard</a></li>
@@ -2176,8 +2134,8 @@ By Theo Carr & Finn Wimberly
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

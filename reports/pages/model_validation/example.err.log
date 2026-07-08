@@ -1,0 +1,171 @@
+Traceback (most recent call last):
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+## Execute data loading
+SERVER_FP = pathlib.Path("/Volumes")
+LON_RANGE = [260, 359.9]
+LAT_RANGE = [0, 70]
+LOAD_FROM_CLOUD = False
+
+## try to suppress file locking
+os.environ["HDF5_USE_FILE_LOCKING"] = "FALSE"
+
+## Load comparable datasets
+t0 = time.time()
+era5_data, cesm_data = load_comparable_datasets(
+    server_fp=SERVER_FP,
+    lon_range=LON_RANGE,
+    lat_range=LAT_RANGE,
+    member_id=10,
+    load_from_cloud=LOAD_FROM_CLOUD,
+    load_ssp370=True,
+)
+
+print(f"\nTotal loading time: {time.time() - t0:.1f} seconds")
+------------------
+
+----- stdout -----
+Loading from server...
+- ERA5: SST (ocean only)
+- CESM: SST (ocean only)
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 12[39m
+[32m      8[39m os.environ[[33m"HDF5_USE_FILE_LOCKING"[39m] = [33m"FALSE"[39m
+[32m      9[39m 
+[32m     10[39m [38;5;66;03m## Load comparable datasets[39;00m
+[32m     11[39m t0 = time.time()
+[32m---> [39m[32m12[39m era5_data, cesm_data = load_comparable_datasets(
+[32m     13[39m     server_fp=SERVER_FP,
+[32m     14[39m     lon_range=LON_RANGE,
+[32m     15[39m     lat_range=LAT_RANGE,
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 70[39m, in [36mload_comparable_datasets[39m[34m(server_fp, lon_range, lat_range, member_id, load_from_cloud, load_ssp370)[39m
+[32m     66[39m         print([33m"- ERA5: SST (ocean only)"[39m)
+[32m     67[39m         print([33m"- CESM: SST (ocean only)"[39m)
+[32m     68[39m 
+[32m     69[39m         [38;5;66;03m# Load ocean-only SST data[39;00m
+[32m---> [39m[32m70[39m         era5_data = load_era5_from_server(server_fp, **kwargs)
+[32m     71[39m         cesm_data = load_cesm_from_server(
+[32m     72[39m             varname=[33m"SST"[39m, server_fp=server_fp, member_id=member_id, **kwargs
+[32m     73[39m         )
+
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 100[39m, in [36mload_era5_from_server[39m[34m(server_fp, lon_range, lat_range)[39m
+[32m     96[39m     [38;5;66;03m## sea surface temperature (SST) filepaths[39;00m
+[32m     97[39m     era5_fp_sst = server_fp / era5_fp / pathlib.Path([33m"sea_surface_temperature"[39m)
+[32m     98[39m 
+[32m     99[39m     [38;5;66;03m## open the data[39;00m
+[32m--> [39m[32m100[39m     data = xr.open_mfdataset(era5_fp_sst.glob([33m"*.nc"[39m))[[33m"sst"[39m]
+[32m    101[39m 
+[32m    102[39m     [38;5;66;03m## convert kelvin to celsius[39;00m
+[32m    103[39m     data_celsius = data.copy() - [32m273.15[39m
+
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1683[39m, in [36mopen_mfdataset[39m[34m(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)[39m
+[32m   1669[39m     combined = _nested_combine(
+[32m   1670[39m         datasets,
+[32m   1671[39m         concat_dims=concat_dim,
+[32m   (...)[39m[32m   1678[39m         fill_value=dtypes.NA,
+[32m   1679[39m     )
+[32m   1680[39m [38;5;28;01melif[39;00m combine == [33m"[39m[33mby_coords[39m[33m"[39m:
+[32m   1681[39m     [38;5;66;03m# Redo ordering from coordinates, ignoring how they were ordered[39;00m
+[32m   1682[39m     [38;5;66;03m# previously[39;00m
+[32m-> [39m[32m1683[39m     combined = [30;43mcombine_by_coords[39;49m[30;43m([39;49m
+[32m   1684[39m [30;43m        [39;49m[30;43mdatasets[39;49m[30;43m,[39;49m
+[32m   1685[39m [30;43m        [39;49m[30;43mcompat[39;49m[30;43m=[39;49m[30;43mcompat[39;49m[30;43m,[39;49m
+[32m   1686[39m [30;43m        [39;49m[30;43mdata_vars[39;49m[30;43m=[39;49m[30;43mdata_vars[39;49m[30;43m,[39;49m
+[32m   1687[39m [30;43m        [39;49m[30;43mcoords[39;49m[30;43m=[39;49m[30;43mcoords[39;49m[30;43m,[39;49m
+[32m   1688[39m [30;43m        [39;49m[30;43mjoin[39;49m[30;43m=[39;49m[30;43mjoin[39;49m[30;43m,[39;49m
+[32m   1689[39m [30;43m        [39;49m[30;43mcombine_attrs[39;49m[30;43m=[39;49m[30;43mcombine_attrs[39;49m[30;43m,[39;49m
+[32m   1690[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m   1691[39m [38;5;28;01melse[39;00m:
+[32m   1692[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[32m   1693[39m         [33mf[39m[33m"[39m[38;5;132;01m{[39;00mcombine[38;5;132;01m}[39;00m[33m is an invalid option for the keyword argument ``combine``[39m[33m"[39m
+[32m   1694[39m     )
+
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1127[39m, in [36mcombine_by_coords[39m[34m(data_objects, compat, data_vars, coords, fill_value, join, combine_attrs)[39m
+[32m   1123[39m     grouped_by_vars = groupby_defaultdict(data_objects, key=vars_as_keys)
+[32m   1125[39m     [38;5;66;03m# Perform the multidimensional combine on each group of data variables[39;00m
+[32m   1126[39m     [38;5;66;03m# before merging back together[39;00m
+[32m-> [39m[32m1127[39m     concatenated_grouped_by_data_vars = [30;43mtuple[39;49m[30;43m([39;49m
+[32m   1128[39m [30;43m        [39;49m[30;43m_combine_single_variable_hypercube[39;49m[30;43m([39;49m
+[32m   1129[39m [30;43m            [39;49m[30;43mtuple[39;49m[30;43m([39;49m[30;43mdatasets_with_same_vars[39;49m[30;43m)[39;49m[30;43m,[39;49m
+[32m   1130[39m [30;43m            [39;49m[30;43mfill_value[39;49m[30;43m=[39;49m[30;43mfill_value[39;49m[30;43m,[39;49m
+[32m   1131[39m [30;43m            [39;49m[30;43mdata_vars[39;49m[30;43m=[39;49m[30;43mdata_vars[39;49m[30;43m,[39;49m
+[32m   1132[39m [30;43m            [39;49m[30;43mcoords[39;49m[30;43m=[39;49m[30;43mcoords[39;49m[30;43m,[39;49m
+[32m   1133[39m [30;43m            [39;49m[30;43mcompat[39;49m[30;43m=[39;49m[30;43mcompat[39;49m[30;43m,[39;49m
+[32m   1134[39m [30;43m            [39;49m[30;43mjoin[39;49m[30;43m=[39;49m[30;43mjoin[39;49m[30;43m,[39;49m
+[32m   1135[39m [30;43m            [39;49m[30;43mcombine_attrs[39;49m[30;43m=[39;49m[30;43mcombine_attrs[39;49m[30;43m,[39;49m
+[32m   1136[39m [30;43m        [39;49m[30;43m)[39;49m
+[32m   1137[39m [30;43m        [39;49m[30;43;01mfor[39;49;00m[30;43m [39;49m[30;43mvars[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdatasets_with_same_vars[39;49m[30;43m [39;49m[30;43;01min[39;49;00m[30;43m [39;49m[30;43mgrouped_by_vars[39;49m
+[32m   1138[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m   1140[39m [38;5;28;01mreturn[39;00m merge(
+[32m   1141[39m     concatenated_grouped_by_data_vars,
+[32m   1142[39m     compat=compat,
+[32m   (...)[39m[32m   1145[39m     combine_attrs=combine_attrs,
+[32m   1146[39m )
+
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:1128[39m, in [36m<genexpr>[39m[34m(.0)[39m
+[32m   1123[39m     grouped_by_vars = groupby_defaultdict(data_objects, key=vars_as_keys)
+[32m   1125[39m     [38;5;66;03m# Perform the multidimensional combine on each group of data variables[39;00m
+[32m   1126[39m     [38;5;66;03m# before merging back together[39;00m
+[32m   1127[39m     concatenated_grouped_by_data_vars = [38;5;28mtuple[39m(
+[32m-> [39m[32m1128[39m         [30;43m_combine_single_variable_hypercube[39;49m[30;43m([39;49m
+[32m   1129[39m [30;43m            [39;49m[30;43mtuple[39;49m[30;43m([39;49m[30;43mdatasets_with_same_vars[39;49m[30;43m)[39;49m[30;43m,[39;49m
+[32m   1130[39m [30;43m            [39;49m[30;43mfill_value[39;49m[30;43m=[39;49m[30;43mfill_value[39;49m[30;43m,[39;49m
+[32m   1131[39m [30;43m            [39;49m[30;43mdata_vars[39;49m[30;43m=[39;49m[30;43mdata_vars[39;49m[30;43m,[39;49m
+[32m   1132[39m [30;43m            [39;49m[30;43mcoords[39;49m[30;43m=[39;49m[30;43mcoords[39;49m[30;43m,[39;49m
+[32m   1133[39m [30;43m            [39;49m[30;43mcompat[39;49m[30;43m=[39;49m[30;43mcompat[39;49m[30;43m,[39;49m
+[32m   1134[39m [30;43m            [39;49m[30;43mjoin[39;49m[30;43m=[39;49m[30;43mjoin[39;49m[30;43m,[39;49m
+[32m   1135[39m [30;43m            [39;49m[30;43mcombine_attrs[39;49m[30;43m=[39;49m[30;43mcombine_attrs[39;49m[30;43m,[39;49m
+[32m   1136[39m [30;43m        [39;49m[30;43m)[39;49m
+[32m   1137[39m         [38;5;28;01mfor[39;00m [38;5;28mvars[39m, datasets_with_same_vars [38;5;129;01min[39;00m grouped_by_vars
+[32m   1138[39m     )
+[32m   1140[39m [38;5;28;01mreturn[39;00m merge(
+[32m   1141[39m     concatenated_grouped_by_data_vars,
+[32m   1142[39m     compat=compat,
+[32m   (...)[39m[32m   1145[39m     combine_attrs=combine_attrs,
+[32m   1146[39m )
+
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:764[39m, in [36m_combine_single_variable_hypercube[39m[34m(datasets, fill_value, data_vars, coords, compat, join, combine_attrs)[39m
+[32m    758[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(datasets) == [32m0[39m:
+[32m    759[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[32m    760[39m         [33m"[39m[33mAt least one Dataset is required to resolve variable names [39m[33m"[39m
+[32m    761[39m         [33m"[39m[33mfor combined hypercube.[39m[33m"[39m
+[32m    762[39m     )
+[32m--> [39m[32m764[39m combined_ids, concat_dims = [30;43m_infer_concat_order_from_coords[39;49m[30;43m([39;49m[30;43mlist[39;49m[30;43m([39;49m[30;43mdatasets[39;49m[30;43m)[39;49m[30;43m)[39;49m
+[32m    766[39m [38;5;28;01mif[39;00m fill_value [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m    767[39m     [38;5;66;03m# check that datasets form complete hypercube[39;00m
+[32m    768[39m     _check_shape_tile_ids(combined_ids)
+
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/structure/combine.py:119[39m, in [36m_infer_concat_order_from_coords[39m[34m(datasets)[39m
+[32m    113[39m [38;5;28;01mif[39;00m index [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m    114[39m     error_msg = (
+[32m    115[39m         [33mf[39m[33m"[39m[33mEvery dimension requires a corresponding 1D coordinate [39m[33m"[39m
+[32m    116[39m         [33mf[39m[33m"[39m[33mand index for inferring concatenation order but the [39m[33m"[39m
+[32m    117[39m         [33mf[39m[33m"[39m[33mcoordinate [39m[33m'[39m[38;5;132;01m{[39;00mdim[38;5;132;01m}[39;00m[33m'[39m[33m has no corresponding index[39m[33m"[39m
+[32m    118[39m     )
+[32m--> [39m[32m119[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
+[32m    120[39m [38;5;66;03m# TODO (benbovy, flexible indexes): support flexible indexes?[39;00m
+[32m    121[39m indexes.append(index.to_pandas_index())
+
+[31mValueError[39m: Every dimension requires a corresponding 1D coordinate and index for inferring concatenation order but the coordinate 'time' has no corresponding index
+

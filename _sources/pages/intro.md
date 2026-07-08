@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the tutorial website for the 2025 WHOI short course on climate model output. An outline for the tutorial-component of the course is below. See the [Resources](resources/resources.md) page for shorter intros on other topics, including [empirical orthogonal functions (EOFs)](resources/eofs.ipynb) and [git/Github](resources/git_basics.md).
+Welcome to the tutorial website for the 2026 WHOI short course on climate model output. An outline for the tutorial-component of the course is below. See the [Resources](resources/resources.md) page for shorter intros on other topics, including [empirical orthogonal functions (EOFs)](resources/eofs.ipynb) and [git/Github](resources/git_basics.md).
 
 ## Outline for data analysis tutorials
 Part | Topic
