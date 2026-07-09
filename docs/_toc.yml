@@ -6,16 +6,15 @@ root: pages/intro
 chapters:
 - file: pages/setup/setup
   sections:
-  - url: https://docs.google.com/presentation/d/1yKFb-_fa_Z-WPbMJax3rHNFw9lOVioPsFmkPtsnXynI/edit?usp=sharing
+  - url: https://docs.google.com/presentation/d/15Sy4etHeNKPQ3XHH0XysaknbiSpZtFHSjJ8fYbxQwlY/edit?usp=sharing
     title: Slides
   - file: pages/setup/setup_venv
   - file: pages/setup/connect_to_server
-  - file: pages/setup/test
+  - file: pages/setup/open_dataset
 - file: pages/data_analysis/overview
   sections:
-  - url: https://docs.google.com/presentation/d/1bwNsn7P8J24s__1svavDL2vwk0QB2eK0PjDc0EKwnMU/edit?usp=sharing 
+  - url: https://docs.google.com/presentation/d/1BxNLW9HQsByzaAxMw9cXGdJAHUg6iivUVUtDCorJ4lY/edit?usp=sharing
     title: Slides
-  - file: pages/data_analysis/setup-changes.md
   - file: pages/data_analysis/example.ipynb
 - file: pages/model_validation/overview.md
   sections:
