@@ -18,206 +18,65 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-print("Loading historical data")
-t0 = time.time()
-data_hist.load()
-t1 = time.time()
-print(f"Elapsed time: {(t1-t0)/60:.1f} minutes\n")
+## check if data exists:
+files_exist = pathlib.Path(SAVE_FP, "data_hist.nc").is_file()
 
-print("Loading future data")
-t0 = time.time()
-data_fut.load()
-t1 = time.time()
-print(f"Elapsed time: {(t1-t0)/60:.1f} minutes\n")
+## try to load pre-computed data
+if files_exist:
+    data_hist = xr.open_dataarray(pathlib.Path(SAVE_FP, "data_hist.nc"))
+    data_fut = xr.open_dataarray(pathlib.Path(SAVE_FP, "data_fut.nc"))
 
-## save to file
-if not files_exist:
-    data_hist.to_netcdf(pathlib.Path(SAVE_FP, "data_hist.nc"))
-    data_fut.to_netcdf(pathlib.Path(SAVE_FP, "data_fut.nc"))
-
-## Concatenate in time
-data = xr.concat([data_hist, data_fut], dim="time")
+else:
+    ## load the data
+    data_hist, data_fut = load_datasets(
+        varname=VARNAME,
+        n_members=N_MEMBERS,
+        lon_range=LON_RANGE,
+        lat_range=LAT_RANGE,
+        lens_fp=LENS_FP,
+        load_from_cloud=LOAD_FROM_CLOUD,
+    )
 ------------------
 
------ stdout -----
-Loading historical data
------ stdout -----
-Elapsed time: 9.6 minutes
-
-Loading future data
------ stdout -----
-Elapsed time: 8.9 minutes
------ stderr -----
-HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
-  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 490 in H5Fis_accessible(): unable to determine if file is accessible as HDF5
-    major: File accessibility
-    minor: Not an HDF5 file
-  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4109 in H5VL_file_specific(): file specific failed
-    major: Virtual Object Layer
-    minor: Can't operate on object
-  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4045 in H5VL__file_specific(): file specific failed
-    major: Virtual Object Layer
-    minor: Can't operate on object
-  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 344 in H5VL__native_file_specific(): error in HDF5 file check
-    major: File accessibility
-    minor: Can't get value
-  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1083 in H5F__is_hdf5(): unable to open file
-    major: File accessibility
-    minor: Unable to initialize object
-  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can't open file
-    major: Virtual File Layer
-    minor: Unable to open file
-  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = '/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0
-    major: File accessibility
-    minor: Unable to open file
-HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
-  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 647 in H5Fcreate(): unable to synchronously create file
-    major: File accessibility
-    minor: Unable to create file
-  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 602 in H5F__create_api_common(): unable to create file
-    major: File accessibility
-    minor: Unable to open file
-  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 3647 in H5VL_file_create(): file create failed
-    major: Virtual Object Layer
-    minor: Unable to create file
-  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 3618 in H5VL__file_create(): file create failed
-    major: Virtual Object Layer
-    minor: Unable to create file
-  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
-    major: File accessibility
-    minor: Unable to open file
-  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1924 in H5F_open(): can't try opening file
-    major: File accessibility
-    minor: Unable to open file
-  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can't o
------ stderr -----
-pen file
-    major: Virtual File Layer
-    minor: Unable to open file
-  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = '/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 602
-    major: File accessibility
-    minor: Unable to open file
-------------------
 
 [31m---------------------------------------------------------------------------[39m
-[31mKeyError[39m                                  Traceback (most recent call last)
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:219[39m, in [36mCachingFileManager._acquire_with_cache_info[39m[34m(self, needs_lock)[39m
-[32m    218[39m [38;5;28;01mtry[39;00m:
-[32m--> [39m[32m219[39m     file = [30;43mself[39;49m[30;43m.[39;49m[30;43m_cache[39;49m[30;43m[[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43m_key[39;49m[30;43m][39;49m
-[32m    220[39m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 11[39m
+[32m      7[39m     data_fut = xr.open_dataarray(pathlib.Path(SAVE_FP, [33m"data_fut.nc"[39m))
+[32m      8[39m 
+[32m      9[39m [38;5;28;01melse[39;00m:
+[32m     10[39m     [38;5;66;03m## load the data[39;00m
+[32m---> [39m[32m11[39m     data_hist, data_fut = load_datasets(
+[32m     12[39m         varname=VARNAME,
+[32m     13[39m         n_members=N_MEMBERS,
+[32m     14[39m         lon_range=LON_RANGE,
 
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/lru_cache.py:56[39m, in [36mLRUCache.__getitem__[39m[34m(self, key)[39m
-[32m     55[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m._lock:
-[32m---> [39m[32m56[39m     value = [30;43mself[39;49m[30;43m.[39;49m[30;43m_cache[39;49m[30;43m[[39;49m[30;43mkey[39;49m[30;43m][39;49m
-[32m     57[39m     [38;5;28mself[39m._cache.move_to_end(key)
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 135[39m, in [36mload_datasets[39m[34m(varname, lon_range, lat_range, lens_fp, load_from_cloud, n_members)[39m
+[32m    131[39m         load_fn = load_from_server_fn
+[32m    132[39m         kwargs[[33m"lens_fp"[39m] = lens_fp
+[32m    133[39m 
+[32m    134[39m     [38;5;66;03m## open the data[39;00m
+[32m--> [39m[32m135[39m     data_hist = load_fn(simulation_type=[33m"historical"[39m, **kwargs)
+[32m    136[39m     data_fut = load_fn(simulation_type=[33m"future"[39m, **kwargs)
+[32m    137[39m 
+[32m    138[39m     [38;5;66;03m## Load LSM (for regridding)[39;00m
 
-[31mKeyError[39m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '5f667730-45af-4231-8312-b00b3e2dc9a4']
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 32[39m, in [36mload_from_server_fn[39m[34m(lens_fp, simulation_type, lon_range, lat_range, n_members, varname)[39m
+[32m     28[39m     [38;5;66;03m## get subset of files to load[39;00m
+[32m     29[39m     files = files[:n_members]
+[32m     30[39m 
+[32m     31[39m     [38;5;66;03m## open the data (but don't load to memory)[39;00m
+[32m---> [39m[32m32[39m     data = xr.open_mfdataset(
+[32m     33[39m         files,
+[32m     34[39m         concat_dim=[33m"member_id"[39m,
+[32m     35[39m         decode_timedelta=[38;5;28;01mTrue[39;00m,
 
-During handling of the above exception, another exception occurred:
+[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1591[39m, in [36mopen_mfdataset[39m[34m(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)[39m
+[32m   1588[39m paths = _find_absolute_paths(paths, engine=engine, **kwargs)
+[32m   1590[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m paths:
+[32m-> [39m[32m1591[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m([33m"[39m[33mno files to open[39m[33m"[39m)
+[32m   1593[39m paths1d: [38;5;28mlist[39m[[38;5;28mstr[39m | ReadBuffer]
+[32m   1594[39m [38;5;28;01mif[39;00m combine == [33m"[39m[33mnested[39m[33m"[39m:
 
-[31mPermissionError[39m                           Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 15[39m
-[32m     11[39m print([33mf"Elapsed time: {(t1-t0)/60:.1f} minutes\n"[39m)
-[32m     12[39m 
-[32m     13[39m [38;5;66;03m## save to file[39;00m
-[32m     14[39m [38;5;28;01mif[39;00m [38;5;28;01mnot[39;00m files_exist:
-[32m---> [39m[32m15[39m     data_hist.to_netcdf(pathlib.Path(SAVE_FP, [33m"data_hist.nc"[39m))
-[32m     16[39m     data_fut.to_netcdf(pathlib.Path(SAVE_FP, [33m"data_fut.nc"[39m))
-[32m     17[39m 
-[32m     18[39m [38;5;66;03m## Concatenate in time[39;00m
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/dataarray.py:4243[39m, in [36mDataArray.to_netcdf[39m[34m(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf, auto_complex)[39m
-[32m   4239[39m [38;5;28;01melse[39;00m:
-[32m   4240[39m     [38;5;66;03m# No problems with the name - so we're fine![39;00m
-[32m   4241[39m     dataset = [38;5;28mself[39m.to_dataset()
-[32m-> [39m[32m4243[39m [38;5;28;01mreturn[39;00m [30;43mto_netcdf[39;49m[30;43m([39;49m[30;43m  [39;49m[30;43;03m# type: ignore[return-value]  # mypy cannot resolve the overloads:([39;49;00m
-[32m   4244[39m [30;43m    [39;49m[30;43mdataset[39;49m[30;43m,[39;49m
-[32m   4245[39m [30;43m    [39;49m[30;43mpath[39;49m[30;43m,[39;49m
-[32m   4246[39m [30;43m    [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43mmode[39;49m[30;43m,[39;49m
-[32m   4247[39m [30;43m    [39;49m[30;43mformat[39;49m[30;43m=[39;49m[30;43mformat[39;49m[30;43m,[39;49m
-[32m   4248[39m [30;43m    [39;49m[30;43mgroup[39;49m[30;43m=[39;49m[30;43mgroup[39;49m[30;43m,[39;49m
-[32m   4249[39m [30;43m    [39;49m[30;43mengine[39;49m[30;43m=[39;49m[30;43mengine[39;49m[30;43m,[39;49m
-[32m   4250[39m [30;43m    [39;49m[30;43mencoding[39;49m[30;43m=[39;49m[30;43mencoding[39;49m[30;43m,[39;49m
-[32m   4251[39m [30;43m    [39;49m[30;43munlimited_dims[39;49m[30;43m=[39;49m[30;43munlimited_dims[39;49m[30;43m,[39;49m
-[32m   4252[39m [30;43m    [39;49m[30;43mcompute[39;49m[30;43m=[39;49m[30;43mcompute[39;49m[30;43m,[39;49m
-[32m   4253[39m [30;43m    [39;49m[30;43mmultifile[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m
-[32m   4254[39m [30;43m    [39;49m[30;43minvalid_netcdf[39;49m[30;43m=[39;49m[30;43minvalid_netcdf[39;49m[30;43m,[39;49m
-[32m   4255[39m [30;43m    [39;49m[30;43mauto_complex[39;49m[30;43m=[39;49m[30;43mauto_complex[39;49m[30;43m,[39;49m
-[32m   4256[39m [30;43m[39;49m[30;43m)[39;49m
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/writers.py:422[39m, in [36mto_netcdf[39m[34m(dataset, path_or_file, mode, format, group, engine, encoding, unlimited_dims, compute, multifile, invalid_netcdf, auto_complex)[39m
-[32m    419[39m [38;5;28;01melse[39;00m:
-[32m    420[39m     target = normalized_path  [38;5;66;03m# type: ignore[assignment][39;00m
-[32m--> [39m[32m422[39m store = [30;43mget_writable_netcdf_store[39;49m[30;43m([39;49m
-[32m    423[39m [30;43m    [39;49m[30;43mtarget[39;49m[30;43m,[39;49m
-[32m    424[39m [30;43m    [39;49m[30;43mengine[39;49m[30;43m,[39;49m
-[32m    425[39m [30;43m    [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43mmode[39;49m[30;43m,[39;49m
-[32m    426[39m [30;43m    [39;49m[30;43mformat[39;49m[30;43m=[39;49m[30;43mformat[39;49m[30;43m,[39;49m
-[32m    427[39m [30;43m    [39;49m[30;43mautoclose[39;49m[30;43m=[39;49m[30;43mautoclose[39;49m[30;43m,[39;49m
-[32m    428[39m [30;43m    [39;49m[30;43minvalid_netcdf[39;49m[30;43m=[39;49m[30;43minvalid_netcdf[39;49m[30;43m,[39;49m
-[32m    429[39m [30;43m    [39;49m[30;43mauto_complex[39;49m[30;43m=[39;49m[30;43mauto_complex[39;49m[30;43m,[39;49m
-[32m    430[39m [30;43m[39;49m[30;43m)[39;49m
-[32m    431[39m [38;5;28;01mif[39;00m group [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[32m    432[39m     store = store.get_child_store(group)
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/writers.py:78[39m, in [36mget_writable_netcdf_store[39m[34m(target, engine, format, mode, autoclose, invalid_netcdf, auto_complex)[39m
-[32m     75[39m [38;5;28;01mif[39;00m auto_complex [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[32m     76[39m     kwargs[[33m"[39m[33mauto_complex[39m[33m"[39m] = auto_complex
-[32m---> [39m[32m78[39m [38;5;28;01mreturn[39;00m [30;43mstore_open[39;49m[30;43m([39;49m[30;43mtarget[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43mmode[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mformat[39;49m[30;43m=[39;49m[30;43mformat[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:529[39m, in [36mNetCDF4DataStore.open[39m[34m(cls, filename, mode, format, group, clobber, diskless, persist, auto_complex, lock, lock_maker, autoclose)[39m
-[32m    525[39m [38;5;28;01melse[39;00m:
-[32m    526[39m     manager = CachingFileManager(
-[32m    527[39m         netCDF4.Dataset, filename, mode=mode, kwargs=kwargs, lock=lock
-[32m    528[39m     )
-[32m--> [39m[32m529[39m [38;5;28;01mreturn[39;00m [30;43mcls[39;49m[30;43m([39;49m[30;43mmanager[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mgroup[39;49m[30;43m=[39;49m[30;43mgroup[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mmode[39;49m[30;43m=[39;49m[30;43mmode[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mlock[39;49m[30;43m=[39;49m[30;43mlock[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mautoclose[39;49m[30;43m=[39;49m[30;43mautoclose[39;49m[30;43m)[39;49m
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:429[39m, in [36mNetCDF4DataStore.__init__[39m[34m(self, manager, group, mode, lock, autoclose)[39m
-[32m    427[39m [38;5;28mself[39m._group = group
-[32m    428[39m [38;5;28mself[39m._mode = mode
-[32m--> [39m[32m429[39m [38;5;28mself[39m.format = [30;43mself[39;49m[30;43m.[39;49m[30;43mds[39;49m.data_model
-[32m    430[39m [38;5;28mself[39m._filename = [38;5;28mself[39m.ds.filepath()
-[32m    431[39m [38;5;28mself[39m.is_remote = is_remote_uri([38;5;28mself[39m._filename)
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:538[39m, in [36mNetCDF4DataStore.ds[39m[34m(self)[39m
-[32m    536[39m [38;5;129m@property[39m
-[32m    537[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mds[39m([38;5;28mself[39m):
-[32m--> [39m[32m538[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_acquire[39;49m[30;43m([39;49m[30;43m)[39;49m
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:532[39m, in [36mNetCDF4DataStore._acquire[39m[34m(self, needs_lock)[39m
-[32m    531[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_acquire[39m([38;5;28mself[39m, needs_lock=[38;5;28;01mTrue[39;00m):
-[32m--> [39m[32m532[39m [30;43m    [39;49m[30;43;01mwith[39;49;00m[30;43m [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43m_manager[39;49m[30;43m.[39;49m[30;43macquire_context[39;49m[30;43m([39;49m[30;43mneeds_lock[39;49m[30;43m)[39;49m[30;43m [39;49m[30;43;01mas[39;49;00m[30;43m [39;49m[30;43mroot[39;49m[30;43m:[39;49m
-[32m    533[39m [30;43m        [39;49m[30;43mds[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43m_nc4_require_group[39;49m[30;43m([39;49m[30;43mroot[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43m_group[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43m_mode[39;49m[30;43m)[39;49m
-[32m    534[39m     [38;5;28;01mreturn[39;00m ds
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/contextlib.py:137[39m, in [36m_GeneratorContextManager.__enter__[39m[34m(self)[39m
-[32m    135[39m [38;5;28;01mdel[39;00m [38;5;28mself[39m.args, [38;5;28mself[39m.kwds, [38;5;28mself[39m.func
-[32m    136[39m [38;5;28;01mtry[39;00m:
-[32m--> [39m[32m137[39m     [38;5;28;01mreturn[39;00m [38;5;28mnext[39m([38;5;28mself[39m.gen)
-[32m    138[39m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
-[32m    139[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mgenerator didn[39m[33m'[39m[33mt yield[39m[33m"[39m) [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;28;01mNone[39;00m
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:207[39m, in [36mCachingFileManager.acquire_context[39m[34m(self, needs_lock)[39m
-[32m    204[39m [38;5;129m@contextmanager[39m
-[32m    205[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34macquire_context[39m([38;5;28mself[39m, needs_lock: [38;5;28mbool[39m = [38;5;28;01mTrue[39;00m) -> Iterator[T_File]:
-[32m    206[39m [38;5;250m    [39m[33;03m"""Context manager for acquiring a file."""[39;00m
-[32m--> [39m[32m207[39m     file, cached = [30;43mself[39;49m[30;43m.[39;49m[30;43m_acquire_with_cache_info[39;49m[30;43m([39;49m[30;43mneeds_lock[39;49m[30;43m)[39;49m
-[32m    208[39m     [38;5;28;01mtry[39;00m:
-[32m    209[39m         [38;5;28;01myield[39;00m file
-
-[36mFile [39m[32m~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:225[39m, in [36mCachingFileManager._acquire_with_cache_info[39m[34m(self, needs_lock)[39m
-[32m    223[39m     kwargs = kwargs.copy()
-[32m    224[39m     kwargs[[33m"[39m[33mmode[39m[33m"[39m] = [38;5;28mself[39m._mode
-[32m--> [39m[32m225[39m file = [30;43mself[39;49m[30;43m.[39;49m[30;43m_opener[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43m_args[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
-[32m    226[39m [38;5;28;01mif[39;00m [38;5;28mself[39m._mode == [33m"[39m[33mw[39m[33m"[39m:
-[32m    227[39m     [38;5;66;03m# ensure file doesn't get overridden when opened again[39;00m
-[32m    228[39m     [38;5;28mself[39m._mode = [33m"[39m[33ma[39m[33m"[39m
-
-[36mFile [39m[32msrc/netCDF4/_netCDF4.pyx:2522[39m
-[32m-> [39m[32m2522[39m [33m'Could not get source, probably due dynamically evaluated source code.'[39m
-
-[36mFile [39m[32msrc/netCDF4/_netCDF4.pyx:2159[39m
-[32m-> [39m[32m2159[39m [33m'Could not get source, probably due dynamically evaluated source code.'[39m
-
-[31mPermissionError[39m: [Errno 13] Permission denied: '/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc'
+[31mOSError[39m: no files to open
 
