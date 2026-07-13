@@ -236,6 +236,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../model_validation/overview.html">2) Model validation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11-gL9_cJSNApmjt8uk_VepmQG5VbDStKDqyrhM7rKfY/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model_validation/python_learners.html">Instructions: Python Learners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model_validation/experienced_coders.html">Instructions: Experienced Coders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../model_validation/example.html">Example</a></li>
 </ul>
 </details></li>
@@ -1009,11 +1011,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_13368/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_20792/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_13368/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_20792/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
@@ -1096,12 +1098,12 @@ HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading historical data
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 7.7 minutes
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 9.6 minutes
 
 Loading future data
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 8.0 minutes
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 9.7 minutes
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
@@ -1165,7 +1167,7 @@ HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;,), &#39;a&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;31817eb8-8241-4cf8-9d3a-18f6ffcfbfc3&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;,), &#39;a&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;cb14f0c3-8edc-4201-9b79-2df520df9324&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
