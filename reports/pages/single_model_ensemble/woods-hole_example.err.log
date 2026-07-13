@@ -42,11 +42,11 @@ data = xr.concat([data_hist, data_fut], dim="time")
 ----- stdout -----
 Loading historical data
 ----- stdout -----
-Elapsed time: 7.9 minutes
+Elapsed time: 7.7 minutes
 
 Loading future data
 ----- stdout -----
-Elapsed time: 6.7 minutes
+Elapsed time: 8.0 minutes
 ----- stderr -----
 HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
   #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 490 in H5Fis_accessible(): unable to determine if file is accessible as HDF5
@@ -109,7 +109,7 @@ HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
 [32m---> [39m[32m56[39m     value = [30;43mself[39;49m[30;43m.[39;49m[30;43m_cache[39;49m[30;43m[[39;49m[30;43mkey[39;49m[30;43m][39;49m
 [32m     57[39m     [38;5;28mself[39m._cache.move_to_end(key)
 
-[31mKeyError[39m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '56d98048-b6b7-4f6b-b568-6e665b1ffac1']
+[31mKeyError[39m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '31817eb8-8241-4cf8-9d3a-18f6ffcfbfc3']
 
 During handling of the above exception, another exception occurred:
 
