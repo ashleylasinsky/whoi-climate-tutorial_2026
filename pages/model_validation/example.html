@@ -1078,7 +1078,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 ERA5 shape: (516, 281, 400)
 CESM shape: (1032, 281, 400)
 
-Total loading time: 1097.3 seconds
+Total loading time: 55.0 seconds
 </pre></div>
 </div>
 </div>
@@ -1404,83 +1404,16 @@ CESM JAS statistics (1979-2006):
 
 <span class="c1"># Compute error (ERA5 - CESM)</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">cesm_jas_mean</span> <span class="o">-</span> <span class="n">era5_jas_mean</span>
-
-<span class="c1"># Create spatial error plot with shared colorbar</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-
-<span class="c1"># Create GridSpec for better control of subplot layout</span>
-<span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-
-<span class="c1"># ERA5 mean</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
-<span class="n">im1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
-    <span class="n">era5_jas_mean</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-    <span class="n">era5_jas_mean</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-    <span class="n">era5_jas_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.thermal&quot;</span><span class="p">,</span>
-    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
-<span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ERA5 Mean Temperature (1979-2006)&quot;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-
-<span class="c1"># CESM mean</span>
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
-<span class="n">im2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
-    <span class="n">cesm_jas_mean</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-    <span class="n">cesm_jas_mean</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-    <span class="n">cesm_jas_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.thermal&quot;</span><span class="p">,</span>
-    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
-<span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CESM Mean Temperature (1979-2006)&quot;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-
-<span class="c1"># Error (CESM - ERA5)</span>
-<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
-<span class="n">im3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
-    <span class="n">error</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-    <span class="n">error</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-    <span class="n">error</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="n">make_cb_range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.balance&quot;</span><span class="p">,</span>
-    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
-<span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error: CESM - ERA5&quot;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-
-<span class="c1"># Shared colorbar for ERA5 and CESM (left side)</span>
-<span class="n">cbar_ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>  <span class="c1"># [left, bottom, width, height]</span>
-<span class="n">cbar1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
-<span class="n">cbar1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">)</span>
-
-<span class="c1"># Separate colorbar for error (right side)</span>
-<span class="n">cbar_ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>  <span class="c1"># [left, bottom, width, height]</span>
-<span class="n">cbar2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax2</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
-<span class="n">cbar2</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature Difference (°C)&quot;</span><span class="p">)</span>
-
-<span class="c1"># ## save to file</span>
-<span class="c1"># fig.savefig(&quot;figs/spatial-bias.svg&quot;)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
-  return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
-</pre></div>
-</div>
-<img alt="../../_images/40dbcdea6599301b58eb5fc56176955659fa3a8fbfc614931bcf8cd31faef7d4.png" src="../../_images/40dbcdea6599301b58eb5fc56176955659fa3a8fbfc614931bcf8cd31faef7d4.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
     <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
     <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span>
     <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># handles all spacing automatically</span>
 <span class="p">)</span>
@@ -1494,7 +1427,7 @@ CESM JAS statistics (1979-2006):
     <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.thermal&quot;</span><span class="p">,</span>
     <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
 <span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ERA5 Mean Temperature (1979-2006)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ERA5 Mean Temperature</span><span class="se">\n</span><span class="s2">(1979-2005)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">12.5</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 
 <span class="c1"># --- CESM mean ---</span>
@@ -1506,7 +1439,7 @@ CESM JAS statistics (1979-2006):
     <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.thermal&quot;</span><span class="p">,</span>
     <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
 <span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CESM Mean Temperature (1979-2006)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CESM Mean Temperature</span><span class="se">\n</span><span class="s2">(1979-2005)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">12.5</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 
 <span class="c1"># --- Error (CESM - ERA5) ---</span>
@@ -1514,18 +1447,23 @@ CESM JAS statistics (1979-2006):
     <span class="n">error</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
     <span class="n">error</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
     <span class="n">error</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">levels</span><span class="o">=</span><span class="n">make_cb_range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">levels</span><span class="o">=</span> <span class="n">make_cb_range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.balance&quot;</span><span class="p">,</span>
     <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
 <span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error: CESM - ERA5&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error: CESM - ERA5&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">12.5</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 
 <span class="c1"># Shared colorbar spanning ax1 and ax2</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">)</span>
+<span class="n">cbar1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">],</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">shrink</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 
 <span class="c1"># Separate colorbar for ax3</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Temperature Difference (°C)&quot;</span><span class="p">)</span>
+<span class="n">cbar2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature Difference (°C)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mf">5.1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 
 <span class="c1"># fig.savefig(&quot;figs/spatial-bias.svg&quot;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1537,7 +1475,7 @@ CESM JAS statistics (1979-2006):
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
 </pre></div>
 </div>
-<img alt="../../_images/06515a0ed16231569223606636ba6306867a49317728f248ff05e68e83e9ac72.png" src="../../_images/06515a0ed16231569223606636ba6306867a49317728f248ff05e68e83e9ac72.png" />
+<img alt="../../_images/2de77c06e87a8b491e7f4a984db547ca239743fb0cb1efc26233cb355c24b38d.png" src="../../_images/2de77c06e87a8b491e7f4a984db547ca239743fb0cb1efc26233cb355c24b38d.png" />
 </div>
 </div>
 <p>The mean temperature plots look fairly similar; however, the error plot reveals some differences between the datasets.</p>
@@ -1585,7 +1523,7 @@ If you’re focusing on a different region, what does the spatial structure of t
 <span class="n">error_cape_cod_gauss</span><span class="p">,</span> <span class="n">error_cape_cod_gauss_pts</span> <span class="o">=</span> <span class="n">get_gaussian_best_fit</span><span class="p">(</span><span class="n">error_wh_flat</span><span class="p">)</span>
 
 <span class="c1"># Create subplots</span>
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="c1"># Plot 1: Whole Region</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span>
@@ -1601,9 +1539,10 @@ If you’re focusing on a different region, what does the spatial structure of t
 <span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature Error (°C)&quot;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error Distribution: Whole Region (CESM - ERA5)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error Distribution:</span><span class="se">\n</span><span class="s2">Whole Region (CESM - ERA5)&quot;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
 
 <span class="c1"># Plot 2: Cape Cod Region</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span>
@@ -1623,8 +1562,7 @@ If you’re focusing on a different region, what does the spatial structure of t
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gaussian Fit&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature Error (°C)&quot;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error Distribution: Cape Cod Region (CESM - ERA5)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error Distribution:</span><span class="se">\n</span><span class="s2">Cape Cod Region (CESM - ERA5)&quot;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
@@ -1634,7 +1572,7 @@ If you’re focusing on a different region, what does the spatial structure of t
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ee81178593a4264c019986ed2c1ac5b134d368de6f6d444dba7e530112da467.png" src="../../_images/3ee81178593a4264c019986ed2c1ac5b134d368de6f6d444dba7e530112da467.png" />
+<img alt="../../_images/ffddd7e32dc1d5f6bcc23f9d5f420ec724365b0777153fa8a9fe31560c8bfa72.png" src="../../_images/ffddd7e32dc1d5f6bcc23f9d5f420ec724365b0777153fa8a9fe31560c8bfa72.png" />
 </div>
 </div>
 <p>What do you think are reasons for the bias? Try plotting the data set without applying the contours (ie make a more simple plot than we did above–you can use xarray’s built in plotting command ds.plot() )</p>
