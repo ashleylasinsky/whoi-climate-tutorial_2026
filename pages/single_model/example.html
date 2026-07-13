@@ -240,7 +240,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">3) Single-model climate-change</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1W0gHDGQoarfeodf-VUkXuN2tNRnU3pRR_PxaNXpYGKM/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1MPwd7eEGpnwKp_tkO0i0eA-6MhfDrAP4f9KUpbHQn8s/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Example</a></li>
 </ul>
 </details></li>
@@ -568,7 +568,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">cartopy.mpl.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">LongitudeFormatter</span><span class="p">,</span> <span class="n">LatitudeFormatter</span>
 
 <span class="c1">## (optional) remove gridlines from plots</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;axes.grid&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="c1"># sns.set(rc={&quot;axes.facecolor&quot;: &quot;white&quot;, &quot;axes.grid&quot;: False})</span>
 </pre></div>
 </div>
 </div>
@@ -740,8 +740,8 @@
         <span class="n">proj</span><span class="p">,</span>
         <span class="n">lon_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span>
         <span class="n">lat_range</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
-        <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">],</span>
-        <span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span>
+        <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span>
     <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
@@ -1047,8 +1047,9 @@ Contents:
 /Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST
 /Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/diatChl
 /Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/spChl
-
-LSM file exists? True
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSM file exists? True
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1106,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 29.6 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 48.2 seconds
 </pre></div>
 </div>
 </div>
@@ -1133,7 +1134,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## blank canvas</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="c1">## plot background</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_setup_atlantic</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
@@ -1164,13 +1165,11 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
+/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
 </pre></div>
 </div>
-<img alt="../../_images/79c3b052038eec536d55d537b7407797a4891f3a19dd50c989596fbf964352b3.png" src="../../_images/79c3b052038eec536d55d537b7407797a4891f3a19dd50c989596fbf964352b3.png" />
+<img alt="../../_images/f6fd2cf5e1b1fa649cd763871157c2161324772e63579224881ab4c348bbc756.png" src="../../_images/f6fd2cf5e1b1fa649cd763871157c2161324772e63579224881ab4c348bbc756.png" />
 </div>
 </div>
 </section>
@@ -1239,16 +1238,14 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;create fig and axs for plotting trends&quot;&quot;&quot;</span>
 
     <span class="c1">## blank canvas</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
     <span class="c1">#### label plots</span>
     <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2080</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2040</span><span class="p">,</span> <span class="mi">2080</span><span class="p">])</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$^{\circ}$C&quot;</span><span class="p">)</span>
 
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span> <span class="mf">24.5</span><span class="p">,</span> <span class="mi">27</span><span class="p">])</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Total&quot;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Anomaly&quot;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1296,7 +1293,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c92dd6033d95cf7d2ada8c76a73c16b35ae312f845f246dd60e208095d086cf9.png" src="../../_images/c92dd6033d95cf7d2ada8c76a73c16b35ae312f845f246dd60e208095d086cf9.png" />
+<img alt="../../_images/63eb49f9ce5291c6dcd79e9003a0d36604a37e9f6eb8db7d04bda1e57c23c4eb.png" src="../../_images/63eb49f9ce5291c6dcd79e9003a0d36604a37e9f6eb8db7d04bda1e57c23c4eb.png" />
 </div>
 </div>
 </section>
@@ -1353,14 +1350,12 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## set colorbar levels</span>
 <span class="k">if</span> <span class="n">LOAD_FROM_CLOUD</span><span class="p">:</span>
     <span class="n">plot_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.balance&quot;</span><span class="p">)</span>
-    <span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="k">else</span><span class="p">:</span>
     <span class="n">plot_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.amp&quot;</span><span class="p">)</span>
-    <span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
 <span class="c1">## blank canvas</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="c1">## plot background</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_setup_atlantic</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
@@ -1388,7 +1383,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <span class="p">)</span>
 
 <span class="c1">## make a colorbar</span>
-<span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">plot_data</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$^{\circ}$C&quot;</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">plot_data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$^{\circ}$C&quot;</span><span class="p">)</span>
 
 <span class="c1">## plot outline of Woods Hole region</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_box_outline</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lon_range</span><span class="o">=</span><span class="p">[</span><span class="mf">287.5</span><span class="p">,</span> <span class="mf">293.5</span><span class="p">],</span> <span class="n">lat_range</span><span class="o">=</span><span class="p">[</span><span class="mi">39</span><span class="p">,</span> <span class="mi">44</span><span class="p">])</span>
@@ -1410,7 +1405,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
 </pre></div>
 </div>
-<img alt="../../_images/821dde00151f91a1d3a58726e9705f602de1568a051adca82e0ececeecadab18.png" src="../../_images/821dde00151f91a1d3a58726e9705f602de1568a051adca82e0ececeecadab18.png" />
+<img alt="../../_images/3434cf620de2ee82fc20b743bb786e21f367f0fbdae7ab53d5da1154af2cf7aa.png" src="../../_images/3434cf620de2ee82fc20b743bb786e21f367f0fbdae7ab53d5da1154af2cf7aa.png" />
 </div>
 </div>
 </section>
@@ -1517,14 +1512,12 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_setup_pdfs</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot background for PDFs&quot;&quot;&quot;</span>
 
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
     <span class="c1">## format/label axes</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Woods Hole&quot;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&#39;Warming hole&#39;&quot;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Prob. density&quot;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
     <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$^{\circ}$C&quot;</span><span class="p">)</span>
@@ -1551,15 +1544,15 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <span class="c1">## format/label axes</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">())</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">edges_woodshole</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">edges_woodshole</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">edges_warminghole</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">edges_warminghole</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5697c7cf040931fb46490b809260fc64c6aad111600cd17503fa4480d084b6a2.png" src="../../_images/5697c7cf040931fb46490b809260fc64c6aad111600cd17503fa4480d084b6a2.png" />
+<img alt="../../_images/fea6b2586b502ce7f794524a5ce225d5c42765bf0d908538f54baff11e3f53ae.png" src="../../_images/fea6b2586b502ce7f794524a5ce225d5c42765bf0d908538f54baff11e3f53ae.png" />
 </div>
 </div>
 </section>
@@ -1635,7 +1628,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5215d308e743e4ff96c87c8cb0f4a003a959fa18ea0d20c3ebc565e453e80d26.png" src="../../_images/5215d308e743e4ff96c87c8cb0f4a003a959fa18ea0d20c3ebc565e453e80d26.png" />
+<img alt="../../_images/6cb343e6681ba6285ea3952252e2a94fcb3112f8ba782a5c2454d4bea519b10c.png" src="../../_images/6cb343e6681ba6285ea3952252e2a94fcb3112f8ba782a5c2454d4bea519b10c.png" />
 </div>
 </div>
 </section>
