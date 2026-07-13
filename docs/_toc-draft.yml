@@ -10,7 +10,7 @@ chapters:
     title: Slides
   - file: pages/setup/setup_venv
   - file: pages/setup/connect_to_server
-  - file: pages/setup/test
+  - file: pages/setup/open_dataset
 - file: pages/data_analysis/overview
   sections:
   - url: https://docs.google.com/presentation/d/1F3ClDLU4TeUIMx5RtKBREIaY270f5Ra1BCKot5fQyiE/edit?usp=sharing
