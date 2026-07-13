@@ -20,6 +20,8 @@ chapters:
   sections:
   - url: https://docs.google.com/presentation/d/11-gL9_cJSNApmjt8uk_VepmQG5VbDStKDqyrhM7rKfY/edit?usp=sharing
     title: Slides
+  - file: pages/model_validation/python_learners.md
+  - file: pages/model_validation/experienced_coders.md
   - file: pages/model_validation/example.ipynb
 - file: pages/single_model/overview
   sections:

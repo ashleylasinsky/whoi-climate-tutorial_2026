@@ -23,10 +23,10 @@ Owing to these deficiencies, we typically assess a climate model's ability to si
 Today, we're going to assess the ability of the CESM climate model (Danabasoglu, G. et al., 2020) to represent variability in our index/region. We'll compare CESM's statistics to those from ERA5 (a reanalysis product, which we'll treat as our observational "ground truth"). In the previous tutorial, we defined an index and computed statistics for this index (e.g., linear trend and histogram). Today, we'll re-compute several of these statistics, for both ERA5 and CESM, and decide whether CESM is a trustworthy model for projecting future changes to this index. Next time, we'll look at the projected changes.
 
 #### To-do list
-0. **Pick a climate index**: we suggest using the same index as last time!
-1. **Pick some metrics**: In the example, we compare the probability distribution of the index in (i) ERA5 and (ii) CESM2. We also look at differences in the time-mean spatial pattern. Several other useful metrics -- also listed above -- may include linear trend, power spectrum, and autocorrelation in time.
-2. **Compute the metrics and make a comparison plot**: e.g., plot the difference between the mean states (the "bias") or overlay the histograms on a single plot.
-3. **Make your assessment**: is the model doing a "good" job? Would you trust its future projections in the region you're looking at? If not, does modifying the index give a better match? (e.g., average over a larger region).
+1. **Pick a climate index**: we suggest using the same index as last time!
+2. **Pick some metrics**: In the example, we compare the probability distribution of the index in (i) ERA5 and (ii) CESM2. We also look at differences in the time-mean spatial pattern. Several other useful metrics -- also listed above -- may include linear trend, power spectrum, and autocorrelation in time.
+3. **Compute the metrics and make a comparison plot**: e.g., plot the difference between the mean states (the "bias") or overlay the histograms on a single plot.
+4. **Make your assessment**: is the model doing a "good" job? Would you trust its future projections in the region you're looking at? If not, does modifying the index give a better match? (e.g., average over a larger region).
 
 Rather than doing all this from scratch, we suggest adapting [the example](./example.ipynb), discussed below.
 
