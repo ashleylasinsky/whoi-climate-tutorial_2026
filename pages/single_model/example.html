@@ -221,19 +221,19 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../setup/setup.html">0) Setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1yKFb-_fa_Z-WPbMJax3rHNFw9lOVioPsFmkPtsnXynI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/15Sy4etHeNKPQ3XHH0XysaknbiSpZtFHSjJ8fYbxQwlY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../setup/setup_venv.html">Python / virtual environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../setup/connect_to_server.html">Accessing the CMIP data servers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../setup/test.html">Test the setup worked!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/open_dataset.html">Test the setup worked!</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data_analysis/overview.html">1) Climate diagnostics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1bwNsn7P8J24s__1svavDL2vwk0QB2eK0PjDc0EKwnMU/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1BxNLW9HQsByzaAxMw9cXGdJAHUg6iivUVUtDCorJ4lY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_analysis/example.html">Example</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../model_validation/overview.html">2) Model validation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1pOMZBwi7BtkkiM8KvIcDS0DyyNMhudgcL7nRoUsCRso/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11-gL9_cJSNApmjt8uk_VepmQG5VbDStKDqyrhM7rKfY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../model_validation/example.html">Example</a></li>
 </ul>
 </details></li>
@@ -563,6 +563,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">intake</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">xesmf</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xe</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cartopy.mpl.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">LongitudeFormatter</span><span class="p">,</span> <span class="n">LatitudeFormatter</span>
 
 <span class="c1">## (optional) remove gridlines from plots</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;axes.grid&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
@@ -676,9 +677,8 @@
     <span class="c1">## add tick labels</span>
     <span class="k">if</span> <span class="n">xticks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-        <span class="c1">## add lon/lat labels</span>
+        <span class="c1">## Draw gridlines</span>
         <span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span>
-            <span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
             <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
             <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
@@ -686,13 +686,13 @@
             <span class="n">zorder</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="c1">## specify which axes to label</span>
-        <span class="n">gl</span><span class="o">.</span><span class="n">top_labels</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">gl</span><span class="o">.</span><span class="n">right_labels</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="c1">## specify ticks</span>
+        <span class="c1">## specify ticks and lat/lon labels</span>
         <span class="n">gl</span><span class="o">.</span><span class="n">ylocator</span> <span class="o">=</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">(</span><span class="n">yticks</span><span class="p">)</span>
         <span class="n">gl</span><span class="o">.</span><span class="n">xlocator</span> <span class="o">=</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">(</span><span class="n">xticks</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">yticks</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LongitudeFormatter</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LatitudeFormatter</span><span class="p">())</span>
 
     <span class="k">return</span> <span class="n">ax</span>
 
@@ -730,7 +730,7 @@
     <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">3.75</span><span class="p">)</span>
 
     <span class="c1">## specify map projection</span>
-    <span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Orthographic</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">central_latitude</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+    <span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
 
     <span class="c1">## get ax object</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_setup</span><span class="p">(</span>
@@ -1045,9 +1045,8 @@ Contents:
 /Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST
 /Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/diatChl
 /Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/spChl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSM file exists? True
+
+LSM file exists? True
 </pre></div>
 </div>
 </div>
@@ -1104,7 +1103,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 51.4 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 29.6 seconds
 </pre></div>
 </div>
 </div>
@@ -1163,17 +1162,13 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
-/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
-  return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
-/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
-  return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
 </pre></div>
 </div>
-<img alt="../../_images/768831468e913373528e937025b32a8368b5ff3b2041e33011ff105f85940956.png" src="../../_images/768831468e913373528e937025b32a8368b5ff3b2041e33011ff105f85940956.png" />
+<img alt="../../_images/79c3b052038eec536d55d537b7407797a4891f3a19dd50c989596fbf964352b3.png" src="../../_images/79c3b052038eec536d55d537b7407797a4891f3a19dd50c989596fbf964352b3.png" />
 </div>
 </div>
 </section>
@@ -1413,7 +1408,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
   return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
 </pre></div>
 </div>
-<img alt="../../_images/531f8859fa7eaa3e46fa494f5f7d208d3eacac9192bde94e80b31f1bd73c9097.png" src="../../_images/531f8859fa7eaa3e46fa494f5f7d208d3eacac9192bde94e80b31f1bd73c9097.png" />
+<img alt="../../_images/821dde00151f91a1d3a58726e9705f602de1568a051adca82e0ececeecadab18.png" src="../../_images/821dde00151f91a1d3a58726e9705f602de1568a051adca82e0ececeecadab18.png" />
 </div>
 </div>
 </section>

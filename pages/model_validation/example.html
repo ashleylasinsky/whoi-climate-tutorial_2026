@@ -223,19 +223,19 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../setup/setup.html">0) Setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1yKFb-_fa_Z-WPbMJax3rHNFw9lOVioPsFmkPtsnXynI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/15Sy4etHeNKPQ3XHH0XysaknbiSpZtFHSjJ8fYbxQwlY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../setup/setup_venv.html">Python / virtual environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../setup/connect_to_server.html">Accessing the CMIP data servers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../setup/test.html">Test the setup worked!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/open_dataset.html">Test the setup worked!</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data_analysis/overview.html">1) Climate diagnostics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1bwNsn7P8J24s__1svavDL2vwk0QB2eK0PjDc0EKwnMU/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1BxNLW9HQsByzaAxMw9cXGdJAHUg6iivUVUtDCorJ4lY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_analysis/example.html">Example</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">2) Model validation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1pOMZBwi7BtkkiM8KvIcDS0DyyNMhudgcL7nRoUsCRso/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11-gL9_cJSNApmjt8uk_VepmQG5VbDStKDqyrhM7rKfY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Example</a></li>
 </ul>
 </details></li>
@@ -545,7 +545,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
 
 <span class="c1">## (optional) remove gridlines from plots</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;axes.grid&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="c1"># sns.set(rc={&quot;axes.facecolor&quot;: &quot;white&quot;, &quot;axes.grid&quot;: False})</span>
 </pre></div>
 </div>
 </div>
@@ -777,11 +777,11 @@
     <span class="n">load_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">server_fp</span><span class="o">=</span><span class="n">server_fp</span><span class="p">,</span> <span class="n">varname</span><span class="o">=</span><span class="n">varname</span><span class="p">,</span> <span class="n">member_id</span><span class="o">=</span><span class="n">member_id</span><span class="p">)</span>
 
     <span class="c1">## Load data</span>
-    <span class="n">data_hist</span> <span class="o">=</span> <span class="n">load_simulation</span><span class="p">(</span><span class="n">simulation_type</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">load_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-    <span class="n">data_rcp</span> <span class="o">=</span> <span class="n">load_simulation</span><span class="p">(</span><span class="n">simulation_type</span><span class="o">=</span><span class="s2">&quot;rcp85&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">load_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-
-    <span class="c1">## concatenate in time</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_hist</span><span class="p">,</span> <span class="n">data_rcp</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">load_simulation</span><span class="p">(</span><span class="n">simulation_type</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">load_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+    
+    <span class="c1">## Uncomment to also get future projection from RCP 8.5. For this example, just need historical run.</span>
+    <span class="c1"># data_rcp = load_simulation(simulation_type=&quot;rcp85&quot;, **load_kwargs).compute()</span>
+    <span class="c1"># data = xr.concat([data, data_rcp], dim=&quot;time&quot;)</span>
 
     <span class="c1">## rename coordinates for convenience</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;TLONG&quot;</span><span class="p">:</span> <span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="s2">&quot;TLAT&quot;</span><span class="p">:</span> <span class="s2">&quot;lat&quot;</span><span class="p">})</span>
@@ -810,9 +810,10 @@
 
     <span class="c1">## sea surface temperature (SST) filepaths</span>
     <span class="n">era5_fp_sst</span> <span class="o">=</span> <span class="n">server_fp</span> <span class="o">/</span> <span class="n">era5_fp</span> <span class="o">/</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;sea_surface_temperature&quot;</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">era5_fp_sst</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.nc&quot;</span><span class="p">))[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
 
     <span class="c1">## open the data</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">era5_fp_sst</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.nc&quot;</span><span class="p">))[</span><span class="s2">&quot;sst&quot;</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">files</span><span class="p">)[</span><span class="s2">&quot;sst&quot;</span><span class="p">]</span>
 
     <span class="c1">## convert kelvin to celsius</span>
     <span class="n">data_celsius</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">-</span> <span class="mf">273.15</span>
@@ -1070,46 +1071,23 @@ The CMIP server seems unable to handle multiple users access the same file at on
 - CESM: SST (ocean only)
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;HDF5_USE_FILE_LOCKING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;FALSE&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">## Load comparable datasets</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">era5_data</span><span class="p">,</span> <span class="n">cesm_data</span> <span class="o">=</span> <span class="n">load_comparable_datasets</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">server_fp</span><span class="o">=</span><span class="n">SERVER_FP</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">lon_range</span><span class="o">=</span><span class="n">LON_RANGE</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">lat_range</span><span class="o">=</span><span class="n">LAT_RANGE</span><span class="p">,</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regridding CESM data to match ERA5 grid...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset summary:
+ERA5 shape: (516, 281, 400)
+CESM shape: (1032, 281, 400)
 
-<span class="nn">Cell In[5], line 70,</span> in <span class="ni">load_comparable_datasets</span><span class="nt">(server_fp, lon_range, lat_range, member_id, load_from_cloud, load_ssp370)</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- ERA5: SST (ocean only)&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- CESM: SST (ocean only)&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span> 
-<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="c1"># Load ocean-only SST data</span>
-<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">era5_data</span> <span class="o">=</span> <span class="n">load_era5_from_server</span><span class="p">(</span><span class="n">server_fp</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">cesm_data</span> <span class="o">=</span> <span class="n">load_cesm_from_server</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">varname</span><span class="o">=</span><span class="s2">&quot;SST&quot;</span><span class="p">,</span> <span class="n">server_fp</span><span class="o">=</span><span class="n">server_fp</span><span class="p">,</span> <span class="n">member_id</span><span class="o">=</span><span class="n">member_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
-
-<span class="nn">Cell In[3], line 100,</span> in <span class="ni">load_era5_from_server</span><span class="nt">(server_fp, lon_range, lat_range)</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="c1">## sea surface temperature (SST) filepaths</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">era5_fp_sst</span> <span class="o">=</span> <span class="n">server_fp</span> <span class="o">/</span> <span class="n">era5_fp</span> <span class="o">/</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;sea_surface_temperature&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span> 
-<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1">## open the data</span>
-<span class="ne">--&gt; </span><span class="mi">100</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">era5_fp_sst</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.nc&quot;</span><span class="p">))[</span><span class="s2">&quot;sst&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> 
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="c1">## convert kelvin to celsius</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>     <span class="n">data_celsius</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">-</span> <span class="mf">273.15</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1591,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1588</span> <span class="n">paths</span> <span class="o">=</span> <span class="n">_find_absolute_paths</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1590</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1591</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;no files to open&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1593</span> <span class="n">paths1d</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">ReadBuffer</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1594</span> <span class="k">if</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;nested&quot;</span><span class="p">:</span>
-
-<span class="ne">OSError</span>: no files to open
+Total loading time: 1097.3 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Align datasets to common time period (1979-2005)</span>
+<span class="n">era5_common</span> <span class="o">=</span> <span class="n">era5_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2005-12-31&quot;</span><span class="p">))</span>
+<span class="n">cesm_common</span> <span class="o">=</span> <span class="n">cesm_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2005-12-31&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1295,19 +1273,15 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute T_wh for both datasets</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing Woods Hole temperature index...&quot;</span><span class="p">)</span>
-<span class="n">t_wh_era5</span> <span class="o">=</span> <span class="n">compute_T_wh</span><span class="p">(</span><span class="n">era5_data</span><span class="p">)</span>
-<span class="n">t_wh_cesm</span> <span class="o">=</span> <span class="n">compute_T_wh</span><span class="p">(</span><span class="n">cesm_data</span><span class="p">)</span>
-
-<span class="c1"># Select time period 1979-2006 first</span>
-<span class="n">t_wh_era5_1979_2006</span> <span class="o">=</span> <span class="n">t_wh_era5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2006-12-31&quot;</span><span class="p">))</span>
-<span class="n">t_wh_cesm_1979_2006</span> <span class="o">=</span> <span class="n">t_wh_cesm</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2006-12-31&quot;</span><span class="p">))</span>
+<span class="n">t_wh_era5</span> <span class="o">=</span> <span class="n">compute_T_wh</span><span class="p">(</span><span class="n">era5_common</span><span class="p">)</span>
+<span class="n">t_wh_cesm</span> <span class="o">=</span> <span class="n">compute_T_wh</span><span class="p">(</span><span class="n">cesm_common</span><span class="p">)</span>
 
 <span class="c1"># Compute JAS averages for both datasets</span>
-<span class="n">era5_jas</span> <span class="o">=</span> <span class="n">get_jas_averages</span><span class="p">(</span><span class="n">t_wh_era5_1979_2006</span><span class="p">)</span>
-<span class="n">cesm_jas</span> <span class="o">=</span> <span class="n">get_jas_averages</span><span class="p">(</span><span class="n">t_wh_cesm_1979_2006</span><span class="p">)</span>
+<span class="n">era5_jas</span> <span class="o">=</span> <span class="n">get_jas_averages</span><span class="p">(</span><span class="n">t_wh_era5</span><span class="p">)</span>
+<span class="n">cesm_jas</span> <span class="o">=</span> <span class="n">get_jas_averages</span><span class="p">(</span><span class="n">t_wh_cesm</span><span class="p">)</span>
 
 <span class="c1"># Create timeseries plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">era5_jas</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
     <span class="n">era5_jas</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
@@ -1353,6 +1327,25 @@ The CMIP server seems unable to handle multiple users access the same file at on
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Woods Hole temperature index...
+</pre></div>
+</div>
+<img alt="../../_images/ca0fa00eafe509e644167f5d3179c3f1b3766384d12127e00c04c59772250b08.png" src="../../_images/ca0fa00eafe509e644167f5d3179c3f1b3766384d12127e00c04c59772250b08.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERA5 JAS statistics (1979-2006):
+  Mean: 19.14°C
+  Std:  0.65°C
+  Min:  17.34°C
+  Max:  20.51°C
+
+CESM JAS statistics (1979-2006):
+  Mean: 23.93°C
+  Std:  0.39°C
+  Min:  23.00°C
+  Max:  24.71°C
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="histogram-of-t-wh">
@@ -1360,8 +1353,8 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Preprocess: remove linear trend</span>
-<span class="n">cesm_detrend</span> <span class="o">=</span> <span class="n">detrend_by_month</span><span class="p">(</span><span class="n">t_wh_cesm_1979_2006</span><span class="p">)</span>
-<span class="n">era5_detrend</span> <span class="o">=</span> <span class="n">detrend_by_month</span><span class="p">(</span><span class="n">t_wh_era5_1979_2006</span><span class="p">)</span>
+<span class="n">cesm_detrend</span> <span class="o">=</span> <span class="n">detrend_by_month</span><span class="p">(</span><span class="n">t_wh_cesm</span><span class="p">)</span>
+<span class="n">era5_detrend</span> <span class="o">=</span> <span class="n">detrend_by_month</span><span class="p">(</span><span class="n">t_wh_era5</span><span class="p">)</span>
 
 <span class="c1">## Compute histograms</span>
 <span class="k">if</span> <span class="n">LOAD_FROM_CLOUD</span><span class="p">:</span>
@@ -1373,7 +1366,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <span class="n">pdf_cesm</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_empirical_pdf</span><span class="p">(</span><span class="n">cesm_detrend</span><span class="p">,</span> <span class="n">bin_edges</span><span class="o">=</span><span class="n">edges</span><span class="p">)</span>
 
 <span class="c1">#### Plot result</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
 <span class="c1">## plot histogram</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">pdf_era5</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ERA5&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1396,17 +1389,16 @@ The CMIP server seems unable to handle multiple users access the same file at on
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1503f36e5eec50167ce959f5f3161a81a4a8e28b2dd4b494ebfcbf547a8799eb.png" src="../../_images/1503f36e5eec50167ce959f5f3161a81a4a8e28b2dd4b494ebfcbf547a8799eb.png" />
+</div>
 </div>
 </section>
 <section id="spatial-bias">
 <h3>3. Spatial bias<a class="headerlink" href="#spatial-bias" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Align datasets to common time period (1979-2006)</span>
-<span class="n">era5_common</span> <span class="o">=</span> <span class="n">era5_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2006-12-31&quot;</span><span class="p">))</span>
-<span class="n">cesm_common</span> <span class="o">=</span> <span class="n">cesm_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1979-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2006-12-31&quot;</span><span class="p">))</span>
-
-<span class="c1"># Compute JAS averages for both datasets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute JAS averages for both datasets</span>
 <span class="n">era5_jas_mean</span> <span class="o">=</span> <span class="n">get_jas_averages</span><span class="p">(</span><span class="n">era5_common</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
 <span class="n">cesm_jas_mean</span> <span class="o">=</span> <span class="n">get_jas_averages</span><span class="p">(</span><span class="n">cesm_common</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
 
@@ -1414,7 +1406,7 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <span class="n">error</span> <span class="o">=</span> <span class="n">cesm_jas_mean</span> <span class="o">-</span> <span class="n">era5_jas_mean</span>
 
 <span class="c1"># Create spatial error plot with shared colorbar</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
 <span class="c1"># Create GridSpec for better control of subplot layout</span>
 <span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1474,6 +1466,78 @@ The CMIP server seems unable to handle multiple users access the same file at on
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
+  return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
+</pre></div>
+</div>
+<img alt="../../_images/40dbcdea6599301b58eb5fc56176955659fa3a8fbfc614931bcf8cd31faef7d4.png" src="../../_images/40dbcdea6599301b58eb5fc56176955659fa3a8fbfc614931bcf8cd31faef7d4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span>
+    <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># handles all spacing automatically</span>
+<span class="p">)</span>
+
+<span class="c1"># --- ERA5 mean ---</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">era5_jas_mean</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
+    <span class="n">era5_jas_mean</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
+    <span class="n">era5_jas_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.thermal&quot;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+<span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ERA5 Mean Temperature (1979-2006)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># --- CESM mean ---</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">cesm_jas_mean</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
+    <span class="n">cesm_jas_mean</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
+    <span class="n">cesm_jas_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.thermal&quot;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+<span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CESM Mean Temperature (1979-2006)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># --- Error (CESM - ERA5) ---</span>
+<span class="n">im3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">error</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
+    <span class="n">error</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
+    <span class="n">error</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">make_cb_range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;cmo.balance&quot;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+<span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error: CESM - ERA5&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Shared colorbar spanning ax1 and ax2</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Separate colorbar for ax3</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Temperature Difference (°C)&quot;</span><span class="p">)</span>
+
+<span class="c1"># fig.savefig(&quot;figs/spatial-bias.svg&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/aschefler/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/shapely/creation.py:730: RuntimeWarning: invalid value encountered in create_collection
+  return lib.create_collection(geometries, np.intc(typ), out=out, **kwargs)
+</pre></div>
+</div>
+<img alt="../../_images/06515a0ed16231569223606636ba6306867a49317728f248ff05e68e83e9ac72.png" src="../../_images/06515a0ed16231569223606636ba6306867a49317728f248ff05e68e83e9ac72.png" />
 </div>
 </div>
 <p>The mean temperature plots look fairly similar; however, the error plot reveals some differences between the datasets.</p>
@@ -1568,6 +1632,9 @@ If you’re focusing on a different region, what does the spatial structure of t
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3ee81178593a4264c019986ed2c1ac5b134d368de6f6d444dba7e530112da467.png" src="../../_images/3ee81178593a4264c019986ed2c1ac5b134d368de6f6d444dba7e530112da467.png" />
 </div>
 </div>
 <p>What do you think are reasons for the bias? Try plotting the data set without applying the contours (ie make a more simple plot than we did above–you can use xarray’s built in plotting command ds.plot() )</p>

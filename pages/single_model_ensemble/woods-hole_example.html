@@ -223,19 +223,19 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../setup/setup.html">0) Setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1yKFb-_fa_Z-WPbMJax3rHNFw9lOVioPsFmkPtsnXynI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/15Sy4etHeNKPQ3XHH0XysaknbiSpZtFHSjJ8fYbxQwlY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../setup/setup_venv.html">Python / virtual environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../setup/connect_to_server.html">Accessing the CMIP data servers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../setup/test.html">Test the setup worked!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/open_dataset.html">Test the setup worked!</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data_analysis/overview.html">1) Climate diagnostics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1bwNsn7P8J24s__1svavDL2vwk0QB2eK0PjDc0EKwnMU/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1BxNLW9HQsByzaAxMw9cXGdJAHUg6iivUVUtDCorJ4lY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_analysis/example.html">Example</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../model_validation/overview.html">2) Model validation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1pOMZBwi7BtkkiM8KvIcDS0DyyNMhudgcL7nRoUsCRso/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11-gL9_cJSNApmjt8uk_VepmQG5VbDStKDqyrhM7rKfY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../model_validation/example.html">Example</a></li>
 </ul>
 </details></li>
@@ -1009,46 +1009,58 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">data_fut</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">SAVE_FP</span><span class="p">,</span> <span class="s2">&quot;data_fut.nc&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="c1">## load the data</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">data_hist</span><span class="p">,</span> <span class="n">data_fut</span> <span class="o">=</span> <span class="n">load_datasets</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">varname</span><span class="o">=</span><span class="n">VARNAME</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">n_members</span><span class="o">=</span><span class="n">N_MEMBERS</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="n">lon_range</span><span class="o">=</span><span class="n">LON_RANGE</span><span class="p">,</span>
-
-<span class="nn">Cell In[3], line 135,</span> in <span class="ni">load_datasets</span><span class="nt">(varname, lon_range, lat_range, lens_fp, load_from_cloud, n_members)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>         <span class="n">load_fn</span> <span class="o">=</span> <span class="n">load_from_server_fn</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;lens_fp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lens_fp</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span> 
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="c1">## open the data</span>
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">data_hist</span> <span class="o">=</span> <span class="n">load_fn</span><span class="p">(</span><span class="n">simulation_type</span><span class="o">=</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="n">data_fut</span> <span class="o">=</span> <span class="n">load_fn</span><span class="p">(</span><span class="n">simulation_type</span><span class="o">=</span><span class="s2">&quot;future&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span> 
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="c1">## Load LSM (for regridding)</span>
-
-<span class="nn">Cell In[3], line 32,</span> in <span class="ni">load_from_server_fn</span><span class="nt">(lens_fp, simulation_type, lon_range, lat_range, n_members, varname)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="c1">## get subset of files to load</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="p">[:</span><span class="n">n_members</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> 
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="c1">## open the data (but don&#39;t load to memory)</span>
-<span class="ne">---&gt; </span><span class="mi">32</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span>         <span class="n">files</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>         <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;member_id&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="n">decode_timedelta</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/api.py:1591,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, errors, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1588</span> <span class="n">paths</span> <span class="o">=</span> <span class="n">_find_absolute_paths</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1590</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1591</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;no files to open&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1593</span> <span class="n">paths1d</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">ReadBuffer</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1594</span> <span class="k">if</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;nested&quot;</span><span class="p">:</span>
-
-<span class="ne">OSError</span>: no files to open
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_12374/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
+  data = xr.open_mfdataset(
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_12374/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
+  data = xr.open_mfdataset(
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 490 in H5Fis_accessible(): unable to determine if file is accessible as HDF5
+    major: File accessibility
+    minor: Not an HDF5 file
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4109 in H5VL_file_specific(): file specific failed
+    major: Virtual Object Layer
+    minor: Can&#39;t operate on object
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4045 in H5VL__file_specific(): file specific failed
+    major: Virtual Object Layer
+    minor: Can&#39;t operate on object
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 344 in H5VL__native_file_specific(): error in HDF5 file check
+    major: File accessibility
+    minor: Can&#39;t get value
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1083 in H5F__is_hdf5(): unable to open file
+    major: File accessibility
+    minor: Unable to initialize object
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can&#39;t open file
+    major: Virtual File Layer
+    minor: Unable to open file
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = &#39;http://psl.noaa.gov/thredds/dodsC/Datasets/noaa.oisst.v2/new/sst.oisst.mon.ltm.1991-2020.nc&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 0, o_flags = 0
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 490 in H5Fis_accessible(): unable to determine if file is accessible as HDF5
+    major: File accessibility
+    minor: Not an HDF5 file
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4109 in H5VL_file_specific(): file specific failed
+    major: Virtual Object Layer
+    minor: Can&#39;t operate on object
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4045 in H5VL__file_specific(): file specific failed
+    major: Virtual Object Layer
+    minor: Can&#39;t operate on object
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 344 in H5VL__native_file_specific(): error in HDF5 file check
+    major: File accessibility
+    minor: Can&#39;t get value
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1083 in H5F__is_hdf5(): unable to open file
+    major: File accessibility
+    minor: Unable to initialize object
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can&#39;t open file
+    major: Virtual File Layer
+    minor: Unable to open file
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = &#39;tmp_257&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 0, o_flags = 0
+    major: File accessibility
+    minor: Unable to open file
 </pre></div>
 </div>
 </div>
@@ -1077,6 +1089,191 @@
 
 <span class="c1">## Concatenate in time</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_hist</span><span class="p">,</span> <span class="n">data_fut</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading historical data
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 7.9 minutes
+
+Loading future data
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 6.7 minutes
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 490 in H5Fis_accessible(): unable to determine if file is accessible as HDF5
+    major: File accessibility
+    minor: Not an HDF5 file
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4109 in H5VL_file_specific(): file specific failed
+    major: Virtual Object Layer
+    minor: Can&#39;t operate on object
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4045 in H5VL__file_specific(): file specific failed
+    major: Virtual Object Layer
+    minor: Can&#39;t operate on object
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 344 in H5VL__native_file_specific(): error in HDF5 file check
+    major: File accessibility
+    minor: Can&#39;t get value
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1083 in H5F__is_hdf5(): unable to open file
+    major: File accessibility
+    minor: Unable to initialize object
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can&#39;t open file
+    major: Virtual File Layer
+    minor: Unable to open file
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = &#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 0, o_flags = 0
+    major: File accessibility
+    minor: Unable to open file
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 647 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 602 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 3647 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 3618 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1924 in H5F_open(): can&#39;t try opening file
+    major: File accessibility
+    minor: Unable to open file
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can&#39;t open file
+    major: Virtual File Layer
+    minor: Unable to open file
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = &#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 13, o_flags = 602
+    major: File accessibility
+    minor: Unable to open file
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:219,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">219</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;,), &#39;a&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;56d98048-b6b7-4f6b-b568-6e665b1ffac1&#39;]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elapsed time: </span><span class="si">{</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">## save to file</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">files_exist</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>     <span class="n">data_hist</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">SAVE_FP</span><span class="p">,</span> <span class="s2">&quot;data_hist.nc&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">data_fut</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">SAVE_FP</span><span class="p">,</span> <span class="s2">&quot;data_fut.nc&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1">## Concatenate in time</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/dataarray.py:4243,</span> in <span class="ni">DataArray.to_netcdf</span><span class="nt">(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf, auto_complex)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4239</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4240</span>     <span class="c1"># No problems with the name - so we&#39;re fine!</span>
+<span class="g g-Whitespace">   </span><span class="mi">4241</span>     <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">4243</span> <span class="k">return</span> <span class="n">to_netcdf</span><span class="p">(</span>  <span class="c1"># type: ignore[return-value]  # mypy cannot resolve the overloads:(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4244</span>     <span class="n">dataset</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4245</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4246</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4247</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4248</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4249</span>     <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4250</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4251</span>     <span class="n">unlimited_dims</span><span class="o">=</span><span class="n">unlimited_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4252</span>     <span class="n">compute</span><span class="o">=</span><span class="n">compute</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4253</span>     <span class="n">multifile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4254</span>     <span class="n">invalid_netcdf</span><span class="o">=</span><span class="n">invalid_netcdf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4255</span>     <span class="n">auto_complex</span><span class="o">=</span><span class="n">auto_complex</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4256</span> <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/writers.py:422,</span> in <span class="ni">to_netcdf</span><span class="nt">(dataset, path_or_file, mode, format, group, engine, encoding, unlimited_dims, compute, multifile, invalid_netcdf, auto_complex)</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span>     <span class="n">target</span> <span class="o">=</span> <span class="n">normalized_path</span>  <span class="c1"># type: ignore[assignment]</span>
+<span class="ne">--&gt; </span><span class="mi">422</span> <span class="n">store</span> <span class="o">=</span> <span class="n">get_writable_netcdf_store</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span>     <span class="n">target</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span>     <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span>     <span class="n">invalid_netcdf</span><span class="o">=</span><span class="n">invalid_netcdf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span>     <span class="n">auto_complex</span><span class="o">=</span><span class="n">auto_complex</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">430</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span> <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_child_store</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/writers.py:78,</span> in <span class="ni">get_writable_netcdf_store</span><span class="nt">(target, engine, format, mode, autoclose, invalid_netcdf, auto_complex)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="k">if</span> <span class="n">auto_complex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auto_complex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">auto_complex</span>
+<span class="ne">---&gt; </span><span class="mi">78</span> <span class="k">return</span> <span class="n">store_open</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:529,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, auto_complex, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span>         <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">529</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:429,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">429</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">430</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:538,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">def</span><span class="w"> </span><span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">538</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:532,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="k">def</span><span class="w"> </span><span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">532</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>     <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:207,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span> <span class="nd">@contextmanager</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">T_File</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="k">yield</span> <span class="n">file</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:225,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">225</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">2522</span>
+<span class="ne">-&gt; </span><span class="mi">2522</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
+
+<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">2159</span>
+<span class="ne">-&gt; </span><span class="mi">2159</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
+
+<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;
 </pre></div>
 </div>
 </div>
