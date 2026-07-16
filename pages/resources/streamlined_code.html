@@ -504,6 +504,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-spatial-plot">Create a spatial plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-plot-more-manually-instead-of-automatically-with-xarray-allows-for-more-customization">Creating the plot more manually, instead of automatically with Xarray. Allows for more customization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-plot">Contour Plot</a></li>
 </ul>
 </li>
@@ -511,7 +512,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-your-selection">Visualize your selection</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-timeseries">Plot a timeseries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-timeseries">Plot a timeseries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Creating the plot more manually, instead of automatically with Xarray. Allows for more customization</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-an-anomaly-by-removing-the-monthly-climatology">Take an anomaly by removing the monthly climatology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-multi-panel-plots">Making multi-panel plots</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries">Timeseries</a></li>
@@ -543,13 +547,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpatches</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1186,7 @@ Attributes: (12/19)
     title:          Sea Surface Temperature
     type:           real
     units:          degC
-    variable_id:    tos</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-obj-name'>&#x27;tos&#x27;</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>lat</span>: 180</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-dfd0097e-8169-4b27-a2c6-4740ca007eeb' class='xr-array-in' type='checkbox' checked><label for='section-dfd0097e-8169-4b27-a2c6-4740ca007eeb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 180, 360), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    variable_id:    tos</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-obj-name'>&#x27;tos&#x27;</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>lat</span>: 180</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5c5056b7-6522-4969-96bb-962bfbd8e691' class='xr-array-in' type='checkbox' checked><label for='section-5c5056b7-6522-4969-96bb-962bfbd8e691' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 180, 360), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1302,14 +1300,14 @@ Attributes: (12/19)
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-fcbfa7cf-ef36-49e8-8198-3a0673a7d12a' class='xr-section-summary-in' type='checkbox' checked /><label for='section-fcbfa7cf-ef36-49e8-8198-3a0673a7d12a' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-15 13:00:00.000007 ... 2...</div><input id='attrs-8f6cd2d6-3d1b-4203-af6f-c3f68ec70d70' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8f6cd2d6-3d1b-4203-af6f-c3f68ec70d70' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2dc5108-985a-49f7-b681-3a11537b9fbb' class='xr-var-data-in' type='checkbox'><label for='data-a2dc5108-985a-49f7-b681-3a11537b9fbb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 15, 13, 0, 0, 7, has_year_zero=True),
+</table></div></div></li><li class='xr-section-item'><input id='section-cfe1977e-340b-48a8-86ba-23103f1394c2' class='xr-section-summary-in' type='checkbox' checked /><label for='section-cfe1977e-340b-48a8-86ba-23103f1394c2' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-15 13:00:00.000007 ... 2...</div><input id='attrs-84d96a12-a80e-4e25-a090-b5bfa205798e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-84d96a12-a80e-4e25-a090-b5bfa205798e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-923a399a-c094-4ba5-9d94-07c60483807d' class='xr-var-data-in' type='checkbox'><label for='data-923a399a-c094-4ba5-9d94-07c60483807d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 15, 13, 0, 0, 7, has_year_zero=True),
        cftime.DatetimeNoLeap(1850, 2, 14, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1850, 3, 15, 12, 0, 0, 0, has_year_zero=True),
        ...,
        cftime.DatetimeNoLeap(2014, 10, 15, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 11, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 12, 15, 12, 0, 0, 0, has_year_zero=True)],
-      shape=(1980,), dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-89.5 -88.5 -87.5 ... 88.5 89.5</div><input id='attrs-785b16fd-a18a-4a93-bb16-9348c084c5cf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-785b16fd-a18a-4a93-bb16-9348c084c5cf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-187a697d-e4a3-4667-9b08-c06e33a95c8e' class='xr-var-data-in' type='checkbox'><label for='data-187a697d-e4a3-4667-9b08-c06e33a95c8e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([-89.5, -88.5, -87.5, -86.5, -85.5, -84.5, -83.5, -82.5, -81.5, -80.5,
+      shape=(1980,), dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-89.5 -88.5 -87.5 ... 88.5 89.5</div><input id='attrs-29f25a55-84ce-4fe5-8195-adb876980fc5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-29f25a55-84ce-4fe5-8195-adb876980fc5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef736c2a-f2ab-495c-adce-6473d1b7c2f7' class='xr-var-data-in' type='checkbox'><label for='data-ef736c2a-f2ab-495c-adce-6473d1b7c2f7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([-89.5, -88.5, -87.5, -86.5, -85.5, -84.5, -83.5, -82.5, -81.5, -80.5,
        -79.5, -78.5, -77.5, -76.5, -75.5, -74.5, -73.5, -72.5, -71.5, -70.5,
        -69.5, -68.5, -67.5, -66.5, -65.5, -64.5, -63.5, -62.5, -61.5, -60.5,
        -59.5, -58.5, -57.5, -56.5, -55.5, -54.5, -53.5, -52.5, -51.5, -50.5,
@@ -1326,7 +1324,7 @@ Attributes: (12/19)
         50.5,  51.5,  52.5,  53.5,  54.5,  55.5,  56.5,  57.5,  58.5,  59.5,
         60.5,  61.5,  62.5,  63.5,  64.5,  65.5,  66.5,  67.5,  68.5,  69.5,
         70.5,  71.5,  72.5,  73.5,  74.5,  75.5,  76.5,  77.5,  78.5,  79.5,
-        80.5,  81.5,  82.5,  83.5,  84.5,  85.5,  86.5,  87.5,  88.5,  89.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-b75b49b3-c8f7-4400-8357-da5d26280251' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b75b49b3-c8f7-4400-8357-da5d26280251' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b3b6c6ed-02e9-4e22-b203-e2001b338d80' class='xr-var-data-in' type='checkbox'><label for='data-b3b6c6ed-02e9-4e22-b203-e2001b338d80' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], shape=(360,))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-96dad53f-e85a-43ab-bd19-925b88dcdbaf' class='xr-section-summary-in' type='checkbox' /><label for='section-96dad53f-e85a-43ab-bd19-925b88dcdbaf' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(19)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacello</dd><dt><span>cell_methods :</span></dt><dd>area: mean where sea time: mean</dd><dt><span>comment :</span></dt><dd>Model data on the 1x1 grid includes values in all cells for which ocean cells on the native grid cover more than 52.5 percent of the 1x1 grid cell. This 52.5 percent cutoff was chosen to produce ocean surface area on the 1x1 grid as close as possible to ocean surface area on the native grid, while not introducing fractional cell coverage.</dd><dt><span>description :</span></dt><dd>This may differ from &quot;surface temperature&quot; in regions of sea ice or floating ice shelves. For models using conservative temperature as the prognostic field, they should report the top ocean layer as surface potential temperature, which is the same as surface in situ temperature.</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>id :</span></dt><dd>tos</dd><dt><span>long_name :</span></dt><dd>Sea Surface Temperature</dd><dt><span>mipTable :</span></dt><dd>Omon</dd><dt><span>out_name :</span></dt><dd>tos</dd><dt><span>prov :</span></dt><dd>Omon ((isd.003))</dd><dt><span>realm :</span></dt><dd>ocean</dd><dt><span>standard_name :</span></dt><dd>sea_surface_temperature</dd><dt><span>time :</span></dt><dd>time</dd><dt><span>time_label :</span></dt><dd>time-mean</dd><dt><span>time_title :</span></dt><dd>Temporal mean</dd><dt><span>title :</span></dt><dd>Sea Surface Temperature</dd><dt><span>type :</span></dt><dd>real</dd><dt><span>units :</span></dt><dd>degC</dd><dt><span>variable_id :</span></dt><dd>tos</dd></dl></div></li></ul></div></div></div></div>
+        80.5,  81.5,  82.5,  83.5,  84.5,  85.5,  86.5,  87.5,  88.5,  89.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-f5eb4cae-9b76-4a73-9245-742f3d15ead7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f5eb4cae-9b76-4a73-9245-742f3d15ead7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3d852720-79a6-4a0c-a064-5de1a2d217f6' class='xr-var-data-in' type='checkbox'><label for='data-3d852720-79a6-4a0c-a064-5de1a2d217f6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], shape=(360,))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b0898006-7f08-4c96-b14b-532a256ffbab' class='xr-section-summary-in' type='checkbox' /><label for='section-b0898006-7f08-4c96-b14b-532a256ffbab' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(19)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacello</dd><dt><span>cell_methods :</span></dt><dd>area: mean where sea time: mean</dd><dt><span>comment :</span></dt><dd>Model data on the 1x1 grid includes values in all cells for which ocean cells on the native grid cover more than 52.5 percent of the 1x1 grid cell. This 52.5 percent cutoff was chosen to produce ocean surface area on the 1x1 grid as close as possible to ocean surface area on the native grid, while not introducing fractional cell coverage.</dd><dt><span>description :</span></dt><dd>This may differ from &quot;surface temperature&quot; in regions of sea ice or floating ice shelves. For models using conservative temperature as the prognostic field, they should report the top ocean layer as surface potential temperature, which is the same as surface in situ temperature.</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>id :</span></dt><dd>tos</dd><dt><span>long_name :</span></dt><dd>Sea Surface Temperature</dd><dt><span>mipTable :</span></dt><dd>Omon</dd><dt><span>out_name :</span></dt><dd>tos</dd><dt><span>prov :</span></dt><dd>Omon ((isd.003))</dd><dt><span>realm :</span></dt><dd>ocean</dd><dt><span>standard_name :</span></dt><dd>sea_surface_temperature</dd><dt><span>time :</span></dt><dd>time</dd><dt><span>time_label :</span></dt><dd>time-mean</dd><dt><span>time_title :</span></dt><dd>Temporal mean</dd><dt><span>title :</span></dt><dd>Sea Surface Temperature</dd><dt><span>type :</span></dt><dd>real</dd><dt><span>units :</span></dt><dd>degC</dd><dt><span>variable_id :</span></dt><dd>tos</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2017,7 +2015,7 @@ Attributes: (12/19)
     title:          Sea Surface Temperature
     type:           real
     units:          degC
-    variable_id:    tos</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-obj-name'>&#x27;tos&#x27;</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>lat</span>: 180</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-3e1d3ed6-ad95-4f2c-8678-bf278cacbbf3' class='xr-array-in' type='checkbox' checked><label for='section-3e1d3ed6-ad95-4f2c-8678-bf278cacbbf3' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>nan nan nan nan nan nan ... -1.764 -1.764 -1.764 -1.764 -1.764 -1.764</span></div><div class='xr-array-data'><pre>array([[[       nan,        nan,        nan, ...,        nan,
+    variable_id:    tos</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-obj-name'>&#x27;tos&#x27;</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>lat</span>: 180</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-45f43f3c-3a70-4de2-9908-c9ff0e766ddc' class='xr-array-in' type='checkbox' checked><label for='section-45f43f3c-3a70-4de2-9908-c9ff0e766ddc' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>nan nan nan nan nan nan ... -1.764 -1.764 -1.764 -1.764 -1.764 -1.764</span></div><div class='xr-array-data'><pre>array([[[       nan,        nan,        nan, ...,        nan,
                 nan,        nan],
         [       nan,        nan,        nan, ...,        nan,
                 nan,        nan],
@@ -2057,14 +2055,14 @@ Attributes: (12/19)
         [-1.7678865, -1.7678522, -1.767808 , ..., -1.7679257,
          -1.7679212, -1.7679087],
         [-1.7640058, -1.7639699, -1.7639298, ..., -1.7641156,
-         -1.7640821, -1.7640452]]], shape=(1980, 180, 360), dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-8e472a36-6ce2-4db5-9a3a-3e8f42e2fa9d' class='xr-section-summary-in' type='checkbox' checked /><label for='section-8e472a36-6ce2-4db5-9a3a-3e8f42e2fa9d' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-15 13:00:00.000007 ... 2...</div><input id='attrs-a3c9fe32-bcc3-43f0-9da7-51eb1fc33ba7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a3c9fe32-bcc3-43f0-9da7-51eb1fc33ba7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-df214498-edf6-46a7-b306-b5a3d0971c84' class='xr-var-data-in' type='checkbox'><label for='data-df214498-edf6-46a7-b306-b5a3d0971c84' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 15, 13, 0, 0, 7, has_year_zero=True),
+         -1.7640821, -1.7640452]]], shape=(1980, 180, 360), dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-3e827de8-1c88-4ddb-8d20-61a1ab0d3691' class='xr-section-summary-in' type='checkbox' checked /><label for='section-3e827de8-1c88-4ddb-8d20-61a1ab0d3691' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-15 13:00:00.000007 ... 2...</div><input id='attrs-dc6ad786-45c7-4320-a6a0-b64f9bd88b1b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc6ad786-45c7-4320-a6a0-b64f9bd88b1b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b59d738f-54e5-42ce-ac0d-17fb41a39af5' class='xr-var-data-in' type='checkbox'><label for='data-b59d738f-54e5-42ce-ac0d-17fb41a39af5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 15, 13, 0, 0, 7, has_year_zero=True),
        cftime.DatetimeNoLeap(1850, 2, 14, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1850, 3, 15, 12, 0, 0, 0, has_year_zero=True),
        ...,
        cftime.DatetimeNoLeap(2014, 10, 15, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 11, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 12, 15, 12, 0, 0, 0, has_year_zero=True)],
-      shape=(1980,), dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-89.5 -88.5 -87.5 ... 88.5 89.5</div><input id='attrs-5f5fd0c7-a0a9-4dfd-a680-a847dc85e045' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5f5fd0c7-a0a9-4dfd-a680-a847dc85e045' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9b038180-7bd1-48f3-9f15-0fe62024bc90' class='xr-var-data-in' type='checkbox'><label for='data-9b038180-7bd1-48f3-9f15-0fe62024bc90' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([-89.5, -88.5, -87.5, -86.5, -85.5, -84.5, -83.5, -82.5, -81.5, -80.5,
+      shape=(1980,), dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-89.5 -88.5 -87.5 ... 88.5 89.5</div><input id='attrs-0b96e849-393d-48d0-9503-e5d08605a545' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0b96e849-393d-48d0-9503-e5d08605a545' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a76ce246-4a1b-4f72-a96c-c8b9cacad305' class='xr-var-data-in' type='checkbox'><label for='data-a76ce246-4a1b-4f72-a96c-c8b9cacad305' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([-89.5, -88.5, -87.5, -86.5, -85.5, -84.5, -83.5, -82.5, -81.5, -80.5,
        -79.5, -78.5, -77.5, -76.5, -75.5, -74.5, -73.5, -72.5, -71.5, -70.5,
        -69.5, -68.5, -67.5, -66.5, -65.5, -64.5, -63.5, -62.5, -61.5, -60.5,
        -59.5, -58.5, -57.5, -56.5, -55.5, -54.5, -53.5, -52.5, -51.5, -50.5,
@@ -2081,12 +2079,13 @@ Attributes: (12/19)
         50.5,  51.5,  52.5,  53.5,  54.5,  55.5,  56.5,  57.5,  58.5,  59.5,
         60.5,  61.5,  62.5,  63.5,  64.5,  65.5,  66.5,  67.5,  68.5,  69.5,
         70.5,  71.5,  72.5,  73.5,  74.5,  75.5,  76.5,  77.5,  78.5,  79.5,
-        80.5,  81.5,  82.5,  83.5,  84.5,  85.5,  86.5,  87.5,  88.5,  89.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-b402addf-4813-4374-a4ef-0c985ac6e0ab' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b402addf-4813-4374-a4ef-0c985ac6e0ab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a5dca214-3263-408d-8d34-4df843870ebb' class='xr-var-data-in' type='checkbox'><label for='data-a5dca214-3263-408d-8d34-4df843870ebb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], shape=(360,))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-accff34c-27af-48fd-8d09-8698f9d9bff3' class='xr-section-summary-in' type='checkbox' /><label for='section-accff34c-27af-48fd-8d09-8698f9d9bff3' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(19)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacello</dd><dt><span>cell_methods :</span></dt><dd>area: mean where sea time: mean</dd><dt><span>comment :</span></dt><dd>Model data on the 1x1 grid includes values in all cells for which ocean cells on the native grid cover more than 52.5 percent of the 1x1 grid cell. This 52.5 percent cutoff was chosen to produce ocean surface area on the 1x1 grid as close as possible to ocean surface area on the native grid, while not introducing fractional cell coverage.</dd><dt><span>description :</span></dt><dd>This may differ from &quot;surface temperature&quot; in regions of sea ice or floating ice shelves. For models using conservative temperature as the prognostic field, they should report the top ocean layer as surface potential temperature, which is the same as surface in situ temperature.</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>id :</span></dt><dd>tos</dd><dt><span>long_name :</span></dt><dd>Sea Surface Temperature</dd><dt><span>mipTable :</span></dt><dd>Omon</dd><dt><span>out_name :</span></dt><dd>tos</dd><dt><span>prov :</span></dt><dd>Omon ((isd.003))</dd><dt><span>realm :</span></dt><dd>ocean</dd><dt><span>standard_name :</span></dt><dd>sea_surface_temperature</dd><dt><span>time :</span></dt><dd>time</dd><dt><span>time_label :</span></dt><dd>time-mean</dd><dt><span>time_title :</span></dt><dd>Temporal mean</dd><dt><span>title :</span></dt><dd>Sea Surface Temperature</dd><dt><span>type :</span></dt><dd>real</dd><dt><span>units :</span></dt><dd>degC</dd><dt><span>variable_id :</span></dt><dd>tos</dd></dl></div></li></ul></div></div></div></div>
+        80.5,  81.5,  82.5,  83.5,  84.5,  85.5,  86.5,  87.5,  88.5,  89.5])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-f51aa557-1c5c-4c44-8af4-09340eea42e1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f51aa557-1c5c-4c44-8af4-09340eea42e1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-42a915bb-725e-45c0-9f03-c26b3a9e99d0' class='xr-var-data-in' type='checkbox'><label for='data-42a915bb-725e-45c0-9f03-c26b3a9e99d0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], shape=(360,))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-df3a2d1d-d4e1-4316-b061-ebf0c0acb16e' class='xr-section-summary-in' type='checkbox' /><label for='section-df3a2d1d-d4e1-4316-b061-ebf0c0acb16e' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(19)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacello</dd><dt><span>cell_methods :</span></dt><dd>area: mean where sea time: mean</dd><dt><span>comment :</span></dt><dd>Model data on the 1x1 grid includes values in all cells for which ocean cells on the native grid cover more than 52.5 percent of the 1x1 grid cell. This 52.5 percent cutoff was chosen to produce ocean surface area on the 1x1 grid as close as possible to ocean surface area on the native grid, while not introducing fractional cell coverage.</dd><dt><span>description :</span></dt><dd>This may differ from &quot;surface temperature&quot; in regions of sea ice or floating ice shelves. For models using conservative temperature as the prognostic field, they should report the top ocean layer as surface potential temperature, which is the same as surface in situ temperature.</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>id :</span></dt><dd>tos</dd><dt><span>long_name :</span></dt><dd>Sea Surface Temperature</dd><dt><span>mipTable :</span></dt><dd>Omon</dd><dt><span>out_name :</span></dt><dd>tos</dd><dt><span>prov :</span></dt><dd>Omon ((isd.003))</dd><dt><span>realm :</span></dt><dd>ocean</dd><dt><span>standard_name :</span></dt><dd>sea_surface_temperature</dd><dt><span>time :</span></dt><dd>time</dd><dt><span>time_label :</span></dt><dd>time-mean</dd><dt><span>time_title :</span></dt><dd>Temporal mean</dd><dt><span>title :</span></dt><dd>Sea Surface Temperature</dd><dt><span>type :</span></dt><dd>real</dd><dt><span>units :</span></dt><dd>degC</dd><dt><span>variable_id :</span></dt><dd>tos</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 </section>
 <section id="create-a-spatial-plot">
 <h2>Create a spatial plot<a class="headerlink" href="#create-a-spatial-plot" title="Link to this heading">#</a></h2>
+<p>For more information on using the mapping package Cartopy, read the documentation here: https://cartopy.readthedocs.io/stable/matplotlib/intro.html</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Average over the &quot;time&quot; dimension:</span>
@@ -2113,6 +2112,11 @@ Attributes: (12/19)
 <span class="c1"># cmap is the colormap. More colormap options here: https://matplotlib.org/stable/users/explain/colors/colormaps.html</span>
 <span class="c1"># Or can use a colormap from the cmocean package: https://matplotlib.org/cmocean/</span>
 
+<span class="c1"># Add lat/lon gridlines</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># alpha is a useful parameter - controls transparency/opacity</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">bottom_labels</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">left_labels</span> <span class="o">=</span> <span class="kc">True</span>
+
 <span class="c1"># OPTIONAL: save the figure on your computer</span>
 <span class="c1"># fig.savefig(&quot;FILE_NAME.png&quot;)</span>
 
@@ -2121,9 +2125,47 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/511203d799bd9f5d7e063c6d4a1a78f80c714d5e7e66d97b0eb0a06debe64381.png" src="../../_images/511203d799bd9f5d7e063c6d4a1a78f80c714d5e7e66d97b0eb0a06debe64381.png" />
+<img alt="../../_images/134b5487471fc0ffe8ed5d9ac48c34b1802720afa91a90707e6a0582dd3008a4.png" src="../../_images/134b5487471fc0ffe8ed5d9ac48c34b1802720afa91a90707e6a0582dd3008a4.png" />
 </div>
 </div>
+<section id="creating-the-plot-more-manually-instead-of-automatically-with-xarray-allows-for-more-customization">
+<h3>Creating the plot more manually, instead of automatically with Xarray. Allows for more customization<a class="headerlink" href="#creating-the-plot-more-manually-instead-of-automatically-with-xarray-allows-for-more-customization" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Blank canvas to plot on</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># dpi controls the image resolution</span>
+
+<span class="c1"># Set up plot axis as a geographic map</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Might be helpful to set min and max values for the plot. For global SST, try vmin=0, vmax=30.</span>
+<span class="n">vmin</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Plot the data</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">data_spatial</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">data_spatial</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">data_spatial</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">pc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sea Surface Temperature (°C)&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+
+<span class="c1"># Add lat/lon gridlines</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># alpha is a useful parameter - controls transparency/opacity</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">bottom_labels</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">left_labels</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># OPTIONAL: save the figure on your computer</span>
+<span class="c1"># fig.savefig(&quot;FILE_NAME.png&quot;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0df95bb4295ca89f4167a020bbcabd781c0de35c60fbd808d14715b41aa222f6.png" src="../../_images/0df95bb4295ca89f4167a020bbcabd781c0de35c60fbd808d14715b41aa222f6.png" />
+</div>
+</div>
+</section>
 <section id="contour-plot">
 <h3>Contour Plot<a class="headerlink" href="#contour-plot" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -2138,6 +2180,11 @@ Attributes: (12/19)
 <span class="c1"># Plot the data</span>
 <span class="n">data_spatial</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
+<span class="c1"># Add lat/lon gridlines</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># alpha is a useful parameter - controls transparency/opacity</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">bottom_labels</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">left_labels</span> <span class="o">=</span> <span class="kc">True</span>
+
 <span class="c1"># OPTIONAL: save the figure on your computer</span>
 <span class="c1"># fig.savefig(&quot;FILE_NAME.png&quot;)</span>
 
@@ -2146,7 +2193,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7588d9be4d9efec5d1bb93494a0455ea629b438950805ee3d56409301dd8fb1b.png" src="../../_images/7588d9be4d9efec5d1bb93494a0455ea629b438950805ee3d56409301dd8fb1b.png" />
+<img alt="../../_images/6dc25bff519831affa85f145d07c6160c2146bc0dc6ea7789aa63d1de70d8f09.png" src="../../_images/6dc25bff519831affa85f145d07c6160c2146bc0dc6ea7789aa63d1de70d8f09.png" />
 </div>
 </div>
 </section>
@@ -2184,6 +2231,11 @@ Attributes: (12/19)
 <span class="c1"># Plot the data</span>
 <span class="n">data_spatial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
 
+<span class="c1"># Add lat/lon gridlines</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># alpha is a useful parameter - controls transparency/opacity</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">bottom_labels</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">left_labels</span> <span class="o">=</span> <span class="kc">True</span>
+
 <span class="c1"># Plot a box showing your spatial region of interest</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span>
     <span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
@@ -2205,7 +2257,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b238f47818a164e979a13312fc8c61c7eb699fa8cee45ce5bef7c81e5d7df9a5.png" src="../../_images/b238f47818a164e979a13312fc8c61c7eb699fa8cee45ce5bef7c81e5d7df9a5.png" />
+<img alt="../../_images/ec7e73b8e053241298dae57cbc69758b708fe71adb63d7bab7a6c76d032f5d35.png" src="../../_images/ec7e73b8e053241298dae57cbc69758b708fe71adb63d7bab7a6c76d032f5d35.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2224,6 +2276,11 @@ Attributes: (12/19)
 <span class="c1"># or just delete that parameter to have matplotlib choose automatically.</span>
 <span class="n">data_subset</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
 
+<span class="c1"># Add lat/lon gridlines</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># alpha is a useful parameter - controls transparency/opacity</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">bottom_labels</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">left_labels</span> <span class="o">=</span> <span class="kc">True</span>
+
 <span class="c1"># OPTIONAL: save the figure on your computer</span>
 <span class="c1"># fig.savefig(&quot;FILE_NAME.png&quot;)</span>
 
@@ -2232,7 +2289,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0df89cd1e4a869b66efd51a5bba8df5009c9605b65a3c08e4f16c2c5266d266f.png" src="../../_images/0df89cd1e4a869b66efd51a5bba8df5009c9605b65a3c08e4f16c2c5266d266f.png" />
+<img alt="../../_images/6704afe38b4ee8985fdd930700a369f6a8e23875b74630773b91f379c4922d31.png" src="../../_images/6704afe38b4ee8985fdd930700a369f6a8e23875b74630773b91f379c4922d31.png" />
 </div>
 </div>
 </section>
@@ -2266,11 +2323,11 @@ Attributes: (12/19)
 <img alt="../../_images/e55865aa234e41a19512635df6b2c68553e5c676f6aee5cccb60fd94177cf3ea.png" src="../../_images/e55865aa234e41a19512635df6b2c68553e5c676f6aee5cccb60fd94177cf3ea.png" />
 </div>
 </div>
+<section id="id1">
+<h3>Creating the plot more manually, instead of automatically with Xarray. Allows for more customization<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Customizing the axes myself, rather than letting xarray auto-generate them</span>
-
-<span class="c1"># Blank canvas to plot on</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Blank canvas to plot on</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># dpi controls the image resolution</span>
 
 <span class="c1"># Plot the data</span>
@@ -2292,6 +2349,7 @@ Attributes: (12/19)
 <img alt="../../_images/7327d0e116a4c1a3549ea638078ea1bd032c95f6477a1cad5e1d2768fe3dc3a0.png" src="../../_images/7327d0e116a4c1a3549ea638078ea1bd032c95f6477a1cad5e1d2768fe3dc3a0.png" />
 </div>
 </div>
+</section>
 </section>
 <section id="take-an-anomaly-by-removing-the-monthly-climatology">
 <h2>Take an anomaly by removing the monthly climatology<a class="headerlink" href="#take-an-anomaly-by-removing-the-monthly-climatology" title="Link to this heading">#</a></h2>
@@ -2370,12 +2428,12 @@ Attributes: (12/19)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the subplots figure. For mapping, include: subplot_kw={&#39;projection&#39;: ccrs.PlateCarree()}</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()})</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()})</span>
 
 <span class="n">ax_1d</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
 <span class="c1"># This for loop structure with &quot;enumerate&quot; is very useful.</span>
-<span class="c1"># For each step in the for loop, it gives you both the item (season) and it corresponding index (idx)</span>
+<span class="c1"># For each step in the for loop, it gives you both the item (season) and its corresponding index (idx)</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">season</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">)):</span>
 
     <span class="c1"># Xarray&#39;s groupby(&#39;time.season&#39;) feature gives you both the season name and the data for that season</span>
@@ -2383,9 +2441,8 @@ Attributes: (12/19)
     <span class="n">season_data</span> <span class="o">=</span> <span class="n">season</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     
     <span class="c1"># Plot the data</span>
-    <span class="n">pc</span> <span class="o">=</span> <span class="n">ax_1d</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">season_data</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">season_data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">season_data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> 
-    <span class="c1"># Note: important that all the subplots have the same vmin and vmax, so they can share a colorbar</span>
-    <span class="c1"># season_data.mean(&#39;time&#39;).plot(ax=ax_1d[idx], vmin=22, vmax=30)</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="n">ax_1d</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">season_data</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">season_data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">season_data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span> 
+    <span class="c1"># Note: important that all the subplots have the same levels, so they can share a colorbar</span>
 
     <span class="n">ax_1d</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">season_name</span><span class="p">)</span>
 
@@ -2404,7 +2461,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/81fe5597eeb183dfdfe528d68dcd6b466f90bc4933729ba3f4e4998a07f5fb09.png" src="../../_images/81fe5597eeb183dfdfe528d68dcd6b466f90bc4933729ba3f4e4998a07f5fb09.png" />
+<img alt="../../_images/1c52d9a04c251e8c2a772f9c3db681aed8352e6c8230085b48f212bd8ae3766f.png" src="../../_images/1c52d9a04c251e8c2a772f9c3db681aed8352e6c8230085b48f212bd8ae3766f.png" />
 </div>
 </div>
 </section>
@@ -2507,6 +2564,7 @@ Attributes: (12/19)
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-spatial-plot">Create a spatial plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-plot-more-manually-instead-of-automatically-with-xarray-allows-for-more-customization">Creating the plot more manually, instead of automatically with Xarray. Allows for more customization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-plot">Contour Plot</a></li>
 </ul>
 </li>
@@ -2514,7 +2572,10 @@ Attributes: (12/19)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-your-selection">Visualize your selection</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-timeseries">Plot a timeseries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-timeseries">Plot a timeseries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Creating the plot more manually, instead of automatically with Xarray. Allows for more customization</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-an-anomaly-by-removing-the-monthly-climatology">Take an anomaly by removing the monthly climatology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-multi-panel-plots">Making multi-panel plots</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries">Timeseries</a></li>
