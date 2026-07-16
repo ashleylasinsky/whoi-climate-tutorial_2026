@@ -48,6 +48,7 @@ chapters:
   - file: pages/examples/azores_analysis.ipynb
 - file: pages/resources/resources
   sections:
+  - file: pages/resources/streamlined_code.ipynb
   - file: pages/resources/data-links.md 
   - file: pages/resources/xarray_reference
   - file: pages/resources/git_basics
