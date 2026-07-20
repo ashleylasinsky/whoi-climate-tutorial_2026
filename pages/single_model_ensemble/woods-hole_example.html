@@ -265,6 +265,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../resources/resources.html">Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resources/streamlined_code.html">Simplified Code Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/data-links.html">Data links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/xarray_reference.html">Xarray reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/git_basics.html">Git basics</a></li>
@@ -1013,11 +1014,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_48840/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_67604/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_48840/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/__/9_qbc5px45zbc1g2trrxp8jw0000gn/T/ipykernel_67604/477759645.py:32: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;time&#39; (&#39;time&#39;,) The recommendation is to set join explicitly for this case.
   data = xr.open_mfdataset(
 </pre></div>
 </div>
@@ -1100,184 +1101,517 @@ HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading historical data
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 7.5 minutes
-
-Loading future data
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 6.7 minutes
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
-  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 490 in H5Fis_accessible(): unable to determine if file is accessible as HDF5
-    major: File accessibility
-    minor: Not an HDF5 file
-  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4109 in H5VL_file_specific(): file specific failed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 7:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
     major: Virtual Object Layer
-    minor: Can&#39;t operate on object
-  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 4045 in H5VL__file_specific(): file specific failed
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
     major: Virtual Object Layer
-    minor: Can&#39;t operate on object
-  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 344 in H5VL__native_file_specific(): error in HDF5 file check
-    major: File accessibility
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3176 in H5D__chunk_read(): unable to read raw data chunk
+    major: Low-level I/O
+    minor: Read failed
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4839 in H5D__chunk_lock(): unable to read raw data chunk
+    major: Low-level I/O
+    minor: Read failed
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 98 in H5F_shared_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 248 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
+    major: Virtual File Layer
+    minor: Read failed
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.034.pop.h.SST.192001-200512.nc&#39;, file descriptor = 105, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f867f770000, total read size = 247863, bytes this sub-read = 247863, offset = 167350225
+    major: Low-level I/O
+    minor: Read failed
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 6:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3147 in H5D__chunk_read(): error looking up chunk address
+    major: Dataset
     minor: Can&#39;t get value
-  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1083 in H5F__is_hdf5(): unable to open file
-    major: File accessibility
-    minor: Unable to initialize object
-  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can&#39;t open file
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4163 in H5D__chunk_lookup(): can&#39;t query chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dbtree.c line 1025 in H5D__btree_idx_get_addr(): can&#39;t check for chunk in B-tree
+    major: Dataset
+    minor: Unable to check for record
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 296 in H5B_find(): can&#39;t lookup key
+    major: B-Tree node
+    minor: Object not found
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 357 in H5B_find_helper(): unable to load B-tree node
+    major: B-Tree node
+    minor: Unable to protect metadata
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5AC.c line 1303 in H5AC_protect(): H5C_protect() failed
+    major: Object cache
+    minor: Unable to protect metadata
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 3154 in H5C_protect(): can&#39;t load entry
+    major: Object cache
+    minor: Unable to load metadata into cache
+  #013: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 1117 in H5C__load_entry(): Can&#39;t read image*
+    major: Object cache
+    minor: Read failed
+  #014: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 138 in H5F_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #015: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #016: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 198 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #017: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
     major: Virtual File Layer
-    minor: Unable to open file
-  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = &#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 0, o_flags = 0
-    major: File accessibility
-    minor: Unable to open file
-HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 9:
-  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 647 in H5Fcreate(): unable to synchronously create file
-    major: File accessibility
-    minor: Unable to create file
-  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5F.c line 602 in H5F__create_api_common(): unable to create file
-    major: File accessibility
-    minor: Unable to open file
-  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 3647 in H5VL_file_create(): file create failed
+    minor: Read failed
+  #018: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.033.pop.h.SST.192001-200512.nc&#39;, file descriptor = 100, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f8550fa6600, total read size = 3656, bytes this sub-read = 3656, offset = 96632
+    major: Low-level I/O
+    minor: Read failed
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 3:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
     major: Virtual Object Layer
-    minor: Unable to create file
-  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 3618 in H5VL__file_create(): file create failed
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
     major: Virtual Object Layer
-    minor: Unable to create file
-  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
-    major: File accessibility
-    minor: Unable to open file
-  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fint.c line 1924 in H5F_open(): can&#39;t try opening file
-    major: File accessibility
-    minor: Unable to open file
-  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FD.c line 966 in H5FD_open(): can&#39;t open file
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3147 in H5D__chunk_read(): error looking up chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4163 in H5D__chunk_lookup(): can&#39;t query chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dbtree.c line 1025 in H5D__btree_idx_get_addr(): can&#39;t check for chunk in B-tree
+    major: Dataset
+    minor: Unable to check for record
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 296 in H5B_find(): can&#39;t lookup key
+    major: B-Tree node
+    minor: Object not found
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 357 in H5B_find_helper(): unable to load B-tree node
+    major: B-Tree node
+    minor: Unable to protect metadata
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5AC.c line 1303 in H5AC_protect(): H5C_protect() failed
+    major: Object cache
+    minor: Unable to protect metadata
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 3154 in H5C_protect(): can&#39;t load entry
+    major: Object cache
+    minor: Unable to load metadata into cache
+  #013: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 1117 in H5C__load_entry(): Can&#39;t read image*
+    major: Object cache
+    minor: Read failed
+  #014: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 138 in H5F_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #015: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #016: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 198 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #017: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
     major: Virtual File Layer
-    minor: Unable to open file
-  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 288 in H5FD__sec2_open(): unable to open file: name = &#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 13, o_flags = 602
-    major: File accessibility
-    minor: Unable to open file
+    minor: Read failed
+  #018: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.032.pop.h.SST.192001-200512.nc&#39;, file descriptor = 103, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f858f217e00, total read size = 3656, bytes this sub-read = 3656, offset = 96632
+    major: Low-level I/O
+    minor: Read failed
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 4:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3147 in H5D__chunk_read(): error looking up chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4163 in H5D__chunk_lookup(): can&#39;t query chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dbtree.c line 1025 in H5D__btree_idx_get_addr(): can&#39;t check for chunk in B-tree
+    major: Dataset
+    minor: Unable to check for record
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 296 in H5B_find(): can&#39;t lookup key
+    major: B-Tree node
+    minor: Object not found
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 357 in H5B_find_helper(): unable to load B-tree node
+    major: B-Tree node
+    minor: Unable to protect metadata
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5AC.c line 1303 in H5AC_protect(): H5C_protect() failed
+    major: Object cache
+    minor: Unable to protect metadata
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 3154 in H5C_protect(): can&#39;t load entry
+    major: Object cache
+    minor: Unable to load metadata into cache
+  #013: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 1117 in H5C__load_entry(): Can&#39;t read image*
+    major: Object cache
+    minor: Read failed
+  #014: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 138 in H5F_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #015: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #016: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 198 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #017: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
+    major: Virtual File Layer
+    minor: Read failed
+  #018: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.031.pop.h.SST.192001-200512.nc&#39;, file descriptor = 112, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f858f221800, total read size = 3656, bytes this sub-read = 3656, offset = 96632
+    major: Low-level I/O
+    minor: Read failed
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 8:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3147 in H5D__chunk_read(): error looking up chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4163 in H5D__chunk_lookup(): can&#39;t query chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dbtree.c line 1025 in H5D__btree_idx_get_addr(): can&#39;t check for chunk in B-tree
+    major: Dataset
+    minor: Unable to check for record
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 296 in H5B_find(): can&#39;t lookup key
+    major: B-Tree node
+    minor: Object not found
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 357 in H5B_find_helper(): unable to load B-tree node
+    major: B-Tree node
+    minor: Unable to protect metadata
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5AC.c line 1303 in H5AC_protect(): H5C_protect() failed
+    major: Object cache
+    minor: Unable to protect metadata
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 3154 in H5C_protect(): can&#39;t load entry
+    major: Object cache
+    minor: Unable to load metadata into cache
+  #013: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 1117 in H5C__load_entry(): Can&#39;t read image*
+    major: Object cache
+    minor: Read failed
+  #014: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 138 in H5F_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #015: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #016: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 198 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #017: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
+    major: Virtual File Layer
+    minor: Read failed
+  #018: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.004.pop.h.SST.192001-200512.nc&#39;, file descriptor = 119, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f858f222800, total read size = 3656, bytes this sub-read = 3656, offset = 112236
+    major: Low-level I/O
+    minor: Read failed
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 5:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3147 in H5D__chunk_read(): error looking up chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4163 in H5D__chunk_lookup(): can&#39;t query chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dbtree.c line 1025 in H5D__btree_idx_get_addr(): can&#39;t check for chunk in B-tree
+    major: Dataset
+    minor: Unable to check for record
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 296 in H5B_find(): can&#39;t lookup key
+    major: B-Tree node
+    minor: Object not found
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 357 in H5B_find_helper(): unable to load B-tree node
+    major: B-Tree node
+    minor: Unable to protect metadata
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5AC.c line 1303 in H5AC_protect(): H5C_protect() failed
+    major: Object cache
+    minor: Unable to protect metadata
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 3154 in H5C_protect(): can&#39;t load entry
+    major: Object cache
+    minor: Unable to load metadata into cache
+  #013: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 1117 in H5C__load_entry(): Can&#39;t read image*
+    major: Object cache
+    minor: Read failed
+  #014: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 138 in H5F_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #015: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #016: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 198 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #017: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
+    major: Virtual File Layer
+    minor: Read failed
+  #018: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.030.pop.h.SST.192001-200512.nc&#39;, file descriptor = 121, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f85509e0a00, total read size = 3656, bytes this sub-read = 3656, offset = 98680
+    major: Low-level I/O
+    minor: Read failed
+HDF5-DIAG: Error detected in HDF5 (2.1.0) thread 2:
+  #000: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 1051 in H5Dread(): can&#39;t synchronously read data
+    major: Dataset
+    minor: Read failed
+  #001: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5D.c line 999 in H5D__read_api_common(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #002: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2209 in H5VL_dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #003: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLcallback.c line 2165 in H5VL__dataset_read(): dataset read failed
+    major: Virtual Object Layer
+    minor: Read failed
+  #004: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5VLnative_dataset.c line 374 in H5VL__native_dataset_read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #005: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dio.c line 402 in H5D__read(): can&#39;t read data
+    major: Dataset
+    minor: Read failed
+  #006: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 3147 in H5D__chunk_read(): error looking up chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #007: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dchunk.c line 4163 in H5D__chunk_lookup(): can&#39;t query chunk address
+    major: Dataset
+    minor: Can&#39;t get value
+  #008: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Dbtree.c line 1025 in H5D__btree_idx_get_addr(): can&#39;t check for chunk in B-tree
+    major: Dataset
+    minor: Unable to check for record
+  #009: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 296 in H5B_find(): can&#39;t lookup key
+    major: B-Tree node
+    minor: Object not found
+  #010: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5B.c line 357 in H5B_find_helper(): unable to load B-tree node
+    major: B-Tree node
+    minor: Unable to protect metadata
+  #011: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5AC.c line 1303 in H5AC_protect(): H5C_protect() failed
+    major: Object cache
+    minor: Unable to protect metadata
+  #012: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 3154 in H5C_protect(): can&#39;t load entry
+    major: Object cache
+    minor: Unable to load metadata into cache
+  #013: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Centry.c line 1117 in H5C__load_entry(): Can&#39;t read image*
+    major: Object cache
+    minor: Read failed
+  #014: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Fio.c line 138 in H5F_block_read(): read through page buffer failed
+    major: Low-level I/O
+    minor: Read failed
+  #015: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5PB.c line 697 in H5PB_read(): read through metadata accumulator failed
+    major: Page Buffering
+    minor: Read failed
+  #016: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5Faccum.c line 198 in H5F__accum_read(): driver read request failed
+    major: Low-level I/O
+    minor: Read failed
+  #017: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDint.c line 271 in H5FD_read(): driver read request failed
+    major: Virtual File Layer
+    minor: Read failed
+  #018: /Users/runner/miniforge3/conda-bld/hdf5_1781836377620/work/src/H5FDsec2.c line 664 in H5FD__sec2_read(): file read failed: time = Thu Jul 16 12:03:55 2026
+, filename = &#39;/Volumes/cmip6/data/cmip6/CMIP/NCAR/LENS/SST/b.e11.B20TRC5CNBDRD.f09_g16.028.pop.h.SST.192001-200512.nc&#39;, file descriptor = 114, errno = 6, error message = &#39;Device not configured&#39;, buf = 0x7f85509e0a00, total read size = 3656, bytes this sub-read = 3656, offset = 98680
+    major: Low-level I/O
+    minor: Read failed
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:219,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">219</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading historical data&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data_hist</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elapsed time: </span><span class="si">{</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/dataarray.py:1173,</span> in <span class="ni">DataArray.load</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1143</span> <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1144</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Trigger loading data into memory and return this dataarray.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1145</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1146</span><span class="sd">     Data will be computed and/or loaded from disk or a remote source.</span>
+<span class="sd">   (...)   1171     Variable.load</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1173</span>     <span class="n">ds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_temp_dataset</span><span class="p">()</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>     <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_from_temp_dataset</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_variable</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">_variable</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;,), &#39;a&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;41903ccd-02dd-4fe5-9540-8d08a4090d83&#39;]
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/dataset.py:569,</span> in <span class="ni">Dataset.load</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>         <span class="k">if</span> <span class="n">chunked_data</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span>             <span class="n">chunkmanager</span> <span class="o">=</span> <span class="n">get_chunked_array_type</span><span class="p">(</span><span class="o">*</span><span class="n">chunked_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span> 
+<span class="g g-Whitespace">    </span><span class="mi">568</span>             <span class="c1"># evaluate all the chunked arrays simultaneously</span>
+<span class="ne">--&gt; </span><span class="mi">569</span>             <span class="n">evaluated_data</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">chunkmanager</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>                 <span class="o">*</span><span class="n">chunked_data</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span> 
 
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/namedarray/daskmanager.py:85,</span> in <span class="ni">DaskManager.compute</span><span class="nt">(self, *data, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>     <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">_DType_co</span><span class="p">],</span> <span class="o">...</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">dask.array</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute</span>
+<span class="ne">---&gt; </span><span class="mi">85</span>     <span class="k">return</span> <span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elapsed time: </span><span class="si">{</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> minutes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">## save to file</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">files_exist</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">15</span>     <span class="n">data_hist</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">SAVE_FP</span><span class="p">,</span> <span class="s2">&quot;data_hist.nc&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">data_fut</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">SAVE_FP</span><span class="p">,</span> <span class="s2">&quot;data_fut.nc&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> 
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1">## Concatenate in time</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/dask/base.py:685,</span> in <span class="ni">compute</span><span class="nt">(traverse, optimize_graph, scheduler, get, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="n">expr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">__dask_keys__</span><span class="p">()))</span>
+<span class="ne">--&gt; </span><span class="mi">685</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">schedule</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="k">return</span> <span class="n">repack</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/dataarray.py:4243,</span> in <span class="ni">DataArray.to_netcdf</span><span class="nt">(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf, auto_complex)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4239</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4240</span>     <span class="c1"># No problems with the name - so we&#39;re fine!</span>
-<span class="g g-Whitespace">   </span><span class="mi">4241</span>     <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">4243</span> <span class="k">return</span> <span class="n">to_netcdf</span><span class="p">(</span>  <span class="c1"># type: ignore[return-value]  # mypy cannot resolve the overloads:(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4244</span>     <span class="n">dataset</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4245</span>     <span class="n">path</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4246</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4247</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4248</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4249</span>     <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4250</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4251</span>     <span class="n">unlimited_dims</span><span class="o">=</span><span class="n">unlimited_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4252</span>     <span class="n">compute</span><span class="o">=</span><span class="n">compute</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4253</span>     <span class="n">multifile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4254</span>     <span class="n">invalid_netcdf</span><span class="o">=</span><span class="n">invalid_netcdf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4255</span>     <span class="n">auto_complex</span><span class="o">=</span><span class="n">auto_complex</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4256</span> <span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/indexing.py:686,</span> in <span class="ni">ImplicitToExplicitIndexingAdapter.__array__</span><span class="nt">(self, dtype, copy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span> <span class="k">def</span><span class="w"> </span><span class="nf">__array__</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span>     <span class="k">if</span> <span class="n">Version</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">Version</span><span class="p">(</span><span class="s2">&quot;2.0.0&quot;</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_duck_array</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_duck_array</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/writers.py:422,</span> in <span class="ni">to_netcdf</span><span class="nt">(dataset, path_or_file, mode, format, group, engine, encoding, unlimited_dims, compute, multifile, invalid_netcdf, auto_complex)</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span>     <span class="n">target</span> <span class="o">=</span> <span class="n">normalized_path</span>  <span class="c1"># type: ignore[assignment]</span>
-<span class="ne">--&gt; </span><span class="mi">422</span> <span class="n">store</span> <span class="o">=</span> <span class="n">get_writable_netcdf_store</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">423</span>     <span class="n">target</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span>     <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">428</span>     <span class="n">invalid_netcdf</span><span class="o">=</span><span class="n">invalid_netcdf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">429</span>     <span class="n">auto_complex</span><span class="o">=</span><span class="n">auto_complex</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">430</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">431</span> <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">432</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_child_store</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/indexing.py:691,</span> in <span class="ni">ImplicitToExplicitIndexingAdapter.get_duck_array</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">690</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_duck_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">691</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">get_duck_array</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/writers.py:78,</span> in <span class="ni">get_writable_netcdf_store</span><span class="nt">(target, engine, format, mode, autoclose, invalid_netcdf, auto_complex)</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="k">if</span> <span class="n">auto_complex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auto_complex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">auto_complex</span>
-<span class="ne">---&gt; </span><span class="mi">78</span> <span class="k">return</span> <span class="n">store_open</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/indexing.py:924,</span> in <span class="ni">CopyOnWriteArray.get_duck_array</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_duck_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">924</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">get_duck_array</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:529,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, auto_complex, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span>         <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">529</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/coding/common.py:80,</span> in <span class="ni">_ElementwiseFunctionArray.get_duck_array</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_duck_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">80</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">get_duck_array</span><span class="p">())</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:429,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">428</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">429</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">430</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">431</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/indexing.py:764,</span> in <span class="ni">LazilyIndexedArray.get_duck_array</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span> <span class="kn">from</span><span class="w"> </span><span class="nn">xarray.backends.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">BackendArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">BackendArray</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">764</span>     <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">765</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>     <span class="n">array</span> <span class="o">=</span> <span class="n">apply_indexer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:538,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">def</span><span class="w"> </span><span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">538</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:117,</span> in <span class="ni">NetCDF4ArrayWrapper.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">117</span>     <span class="k">return</span> <span class="n">indexing</span><span class="o">.</span><span class="n">explicit_indexing_adapter</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>         <span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">indexing</span><span class="o">.</span><span class="n">IndexingSupport</span><span class="o">.</span><span class="n">OUTER</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:532,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="k">def</span><span class="w"> </span><span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">532</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span>     <span class="k">return</span> <span class="n">ds</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/core/indexing.py:1156,</span> in <span class="ni">explicit_indexing_adapter</span><span class="nt">(key, shape, indexing_support, raw_indexing_method)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Support explicit indexing by delegating to a raw indexing method.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span><span class="sd"> Outer and/or vectorized indexers are supported by indexing a second time</span>
+<span class="sd">   (...)   1153 Indexing result, in the form of a duck numpy-array.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1154</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1155</span> <span class="n">raw_key</span><span class="p">,</span> <span class="n">numpy_indices</span> <span class="o">=</span> <span class="n">decompose_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">indexing_support</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1156</span> <span class="n">result</span> <span class="o">=</span> <span class="n">raw_indexing_method</span><span class="p">(</span><span class="n">raw_key</span><span class="o">.</span><span class="n">tuple</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1157</span> <span class="k">if</span> <span class="n">numpy_indices</span><span class="o">.</span><span class="n">tuple</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1158</span>     <span class="c1"># index the loaded duck array</span>
+<span class="g g-Whitespace">   </span><span class="mi">1159</span>     <span class="n">indexable</span> <span class="o">=</span> <span class="n">as_indexable</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:130,</span> in <span class="ni">NetCDF4ArrayWrapper._getitem</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">datastore</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="n">original_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="n">needs_lock</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">130</span>         <span class="n">array</span> <span class="o">=</span> <span class="n">getitem</span><span class="p">(</span><span class="n">original_array</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="c1"># Catch IndexError in netCDF4 and return a more informative</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="c1"># error message.  This is most often called when an unsorted</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="c1"># indexer is used before the data is loaded from disk.</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="s2">&quot;The indexing operation you are attempting to perform &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="s2">&quot;is not valid on netCDF4.Variable object. Try loading &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="s2">&quot;your data into memory first by calling .load().&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:207,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">204</span> <span class="nd">@contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">T_File</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">207</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="k">yield</span> <span class="n">file</span>
+<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">5108</span>
+<span class="ne">-&gt; </span><span class="mi">5108</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/tutorial_env/lib/python3.11/site-packages/xarray/backends/file_manager.py:225,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">225</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">226</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">6082</span>
+<span class="ne">-&gt; </span><span class="mi">6082</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
 
-<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">2522</span>
-<span class="ne">-&gt; </span><span class="mi">2522</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
+<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">2165</span>
+<span class="ne">-&gt; </span><span class="mi">2165</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
 
-<span class="n">File</span> <span class="n">src</span><span class="o">/</span><span class="n">netCDF4</span><span class="o">/</span><span class="n">_netCDF4</span><span class="o">.</span><span class="n">pyx</span><span class="p">:</span><span class="mi">2159</span>
-<span class="ne">-&gt; </span><span class="mi">2159</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
-
-<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/single_model_ensemble/data/server/data_hist.nc&#39;
+<span class="ne">RuntimeError</span>: NetCDF: HDF error
 </pre></div>
 </div>
 </div>

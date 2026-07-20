@@ -57,7 +57,7 @@ slp_lme_orb = get_trimmed_data_lme(
 [32m---> [39m[32m56[39m     value = [30;43mself[39;49m[30;43m.[39;49m[30;43m_cache[39;49m[30;43m[[39;49m[30;43mkey[39;49m[30;43m][39;49m
 [32m     57[39m     [38;5;28mself[39m._cache.move_to_end(key)
 
-[31mKeyError[39m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/examples/data/cmip5_reanalysis_raw/prmsl.mon.mean.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'ce85bdf5-c083-4ad1-9fc3-6065254022f1']
+[31mKeyError[39m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/aschefler/Desktop/whoi-climate-tutorial_2026/docs/pages/examples/data/cmip5_reanalysis_raw/prmsl.mon.mean.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '3a2cff78-00c2-488a-860c-772409661544']
 
 During handling of the above exception, another exception occurred:
 
